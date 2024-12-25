@@ -1,0 +1,65 @@
+.job_container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, input[type="text"], input[type="number"], input[type="checkbox"], textarea, .time-select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .time-select {
+            display: inline-block;
+            width: calc(50% - 5px);
+        }
+        .form-inline {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit:hover {
+            background: #00B074;
+        }
+        .job-benefits-list {
+            margin-top: 10px;
+            list-style-type: none;
+            padding-left: 0;
+        }
+		.submit{
+			display: block;
+            width: 100%;
+            padding: 10px;
+            background: #;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+		}

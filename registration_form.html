@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Udaipur Hotelier</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+	<link href="css/style.css" rel="stylesheet">
+	<style>
+        .fom_container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h6 , h3 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select, textarea, button {
+            margin-top: 8px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .section {
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .checkbox {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox input {
+            width: auto;
+            margin-right: 10px;
+        }
+        button {
+            
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h4 class="m-0 text-primary">Udaipur Hotelier</h4>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+					<a href="category.html" class="nav-item nav-link">Jobs</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+					<a href="Resume.html" class="nav-item nav-link none">Resume</a>
+					
+                </div>
+			</div>
+        </nav>
+		
+
+	<!-- Header End -->
+        <div class="container-xxl py-5 bg-dark page-header mb-5">
+            <div class="container my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Candidate Registration Form</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb text-uppercase">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Registration form</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+	<!-- registration form -->
+	
+	    <div class="fom_container">
+        <h1>Udaipur Hotelier</h1>
+        <h6>Welcome to Udaipur Hotelier Job Registration Portal</h6>
+        <form id="registrationForm">
+            <!-- Personal Details Section -->
+            <div class="section">
+                <h3>Personal Details</h3>
+                <label for="image">Upload Profile Picture:</label>
+                <input type="file" id="image" accept="image/*">
+
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+
+                <label for="middleName">Middle Name:</label>
+                <input type="text" id="middleName">
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" required>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" required>
+
+                <label for="pincode">Pincode:</label>
+                <input type="text" id="pincode" required>
+
+                <label for="experienceType">Experience Type:</label>
+                <select id="experienceType" required>
+                    <option value="">Select</option>
+                    <option value="student">Student</option>
+                    <option value="fresher">Fresher</option>
+                    <option value="experience">Experience</option>
+                </select>
+            </div>
+
+            <!-- Student Section -->
+            <div id="studentSection" class="section hidden">
+                <h3>Student Details</h3>
+                <label for="collegeName">College Name:</label>
+                <input type="text" id="collegeName">
+
+                <label for="yearOfPassing">Year of Passing:</label>
+                <input type="text" id="yearOfPassing">
+
+                <label for="fieldOfStudy">Field of Study:</label>
+                <input type="text" id="fieldOfStudy">
+
+                <label for="lookingJobFor">Looking Job For:</label>
+                <select id="lookingJobFor">
+                    <option value="jobTraining">Job Training</option>
+                    <option value="internship">Internship</option>
+                </select>
+
+                <div class="checkbox">
+                    <input type="checkbox" id="allowShareDetails">
+                    <label for="allowShareDetails">Allow us to share your details with colleges or employers.</label>
+                </div>
+
+                <label for="resume">Upload Your Resume:</label>
+                <input type="file" id="resume" accept=".pdf,.doc,.docx">
+            </div>
+
+            <!-- Fresher Section -->
+            <div id="fresherSection" class="section hidden">
+                <h3>Fresher Details</h3>
+                <label for="fresherCollegeName">College Name:</label>
+                <input type="text" id="fresherCollegeName">
+
+                <label for="fresherYearOfPassing">Year of Passing:</label>
+                <input type="text" id="fresherYearOfPassing">
+
+                <label for="fresherFieldOfStudy">Field of Study:</label>
+                <input type="text" id="fresherFieldOfStudy">
+
+                <label for="interestedField">Interested Field:</label>
+                <select id="interestedField" multiple>
+                    <option value="frontOffice">Front Office</option>
+                    <option value="housekeeping">Housekeeping</option>
+                    <option value="kitchen">Kitchen</option>
+                    <option value="maintenance">Maintenance</option>
+                </select>
+
+                <div class="checkbox">
+                    <input type="checkbox" id="allowShareDetailsFresher">
+                    <label for="allowShareDetailsFresher">Allow us to share your details with colleges or employers.</label>
+                </div>
+
+                <label for="fresherResume">Upload Your Resume:</label>
+                <input type="file" id="fresherResume" accept=".pdf,.doc,.docx">
+            </div>
+
+            <!-- Experience Section -->
+            <div id="experienceSection" class="section hidden">
+                <h3>Experience Details</h3>
+                <label>Currently Working:</label>
+                <input type="radio" name="currentlyWorking" value="yes" id="workingYes"> Yes
+                <input type="radio" name="currentlyWorking" value="no" id="workingNo"> No
+				<br>
+				
+                <div id="currentEmployerSection" class="hidden">
+                    <label for="currentEmployer">Current Employer:</label>
+                    <input type="text" id="currentEmployer">
+                </div>
+
+                <div id="previousEmployerSection" class="hidden">
+                    <label for="lastEmployer">Last Employer:</label>
+                    <input type="text" id="lastEmployer">
+
+                    <label for="exitDate">Exit Date:</label>
+                    <input type="date" id="exitDate">
+
+                    <label for="reason">Reason for Gap:</label>
+                    <textarea id="reason"></textarea>
+                </div>
+
+                <label for="experienceField">Department Worked:</label>
+                <input type="text" id="experienceField">
+
+                <label for="searchingDepartment">Department Searching:</label>
+                <input type="text" id="searchingDepartment">
+
+                <label for="totalExperience">Total Experience:</label>
+                <input type="text" id="totalExperience">
+
+                <label for="lastSalary">Last Salary:</label>
+                <input type="text" id="lastSalary">
+
+                <label for="salaryMode">Salary Credit Mode:</label>
+                <select id="salaryMode">
+                    <option value="cash">Cash</option>
+                    <option value="bankAccount">Bank Account</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+	
+ 
+  
+	
+        const experienceType = document.getElementById('experienceType');
+        const studentSection = document.getElementById('studentSection');
+        const fresherSection = document.getElementById('fresherSection');
+        const experienceSection = document.getElementById('experienceSection');
+        const workingYes = document.getElementById('workingYes');
+        const workingNo = document.getElementById('workingNo');
+        const currentEmployerSection = document.getElementById('currentEmployerSection');
+        const previousEmployerSection = document.getElementById('previousEmployerSection');
+
+        experienceType.addEventListener('change', () => {
+            studentSection.classList.add('hidden');
+            fresherSection.classList.add('hidden');
+            experienceSection.classList.add('hidden');
+
+            if (experienceType.value === 'student') {
+                studentSection.classList.remove('hidden');
+            } else if (experienceType.value === 'fresher') {
+                fresherSection.classList.remove('hidden');
+            } else if (experienceType.value === 'experience') {
+                experienceSection.classList.remove('hidden');
+            }
+        });
+
+        workingYes.addEventListener('change', () => {
+            currentEmployerSection.classList.remove('hidden');
+            previousEmployerSection.classList.add('hidden');
+        });
+
+        workingNo.addEventListener('change', () => {
+            currentEmployerSection.classList.add('hidden');
+            previousEmployerSection.classList.remove('hidden');
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Registration is Complete. but no Data have to saved. Please come back after data base is created');
+        });
+    </script>
+</body>
+         
+		 
+    </div>
+
+
+<!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+	
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+</body>
+
+</html>

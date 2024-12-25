@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Udaipur Hotelier</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+	<link href="css/style.css" rel="stylesheet">
+    <link href="css/hkchecklist.css" rel="stylesheet">
+	
+	<style>
+.skills_container {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .heading input {
+      margin-top: 10px;
+    }
+
+    .paragraph {
+      display: none;
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+	
+	.online-counter {
+      font-size: 18px;
+      color: #00B074;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh; 
+    }
+	
+</style>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+		<!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h4 class="m-0 text-primary">Udaipur Hotelier</h4>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+           <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+					<a href="category.html" class="nav-item nav-link">Jobs</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+					<a href="Resume.html" class="nav-item nav-link none">Resume</a>
+					
+                </div>
+			</div>
+		</nav>
+        <!-- Navbar End -->
+
+
+        <!-- Header End -->
+        <div class="container-xxl py-5 bg-dark page-header mb-5">
+            <div class="container my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Human Resource</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb text-uppercase">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="hrexp.html">Human Resource</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">HR Knowledge</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- Header End -->
+
+		<div class="containeer">
+    <h2>HR Knowledge</h2>
+    <form id="checklistForm">
+		<h6>Significance of The Human Resource Department</h6>
+			<p><b>Human Resource Management (HRM) is a strategic approach to managing employees to achieve better organizational performance. It aims to attract, manage, and retain employees who contribute to the company’s success, ensuring their alignment with the organization’s strategic goals and culture. HRM encompasses various functions, including recruitment, compensation, and employee development, to support and engage the workforce effectively.</b></p>
+			<p><b>The HR department aims to provide the knowledge, tools, training, legal advice, administration, and talent management crucial to supporting and advancing the company.</b></p>
+        <!-- software Field -->
+        <br><div class="section">
+            <h6>Types of software</h6>
+			<div class="checkbox-group">
+			<label><input type="checkbox" name="software1"> Excel</label>
+			<label><input type="checkbox" name="software2"> BambooHR</label>
+			<label><input type="checkbox" name="software3"> Rippling</label>
+			<label><input type="checkbox" name="software4"> Paycor</label>
+			<label><input type="checkbox" name="software5"> Workday</label>
+			<label><input type="checkbox" name="software6"> ADP</label>
+			</div>
+		</div>	
+<!-- new Way -->
+		<div class="section">
+            <h6>Some basic knowledge</h6>
+			<div class="checkbox-group">
+                <label><input type="checkbox" name="cleaning1" onclick="toggleParagraph(1)"> Performance management</label>
+                <label><input type="checkbox" name="cleaning1" onclick="toggleParagraph(2)"> Succession planning</label>
+                <label><input type="checkbox" name="cleaning1" onclick="toggleParagraph(3)"> HR analytics</label>
+                <label><input type="checkbox" name="cleaning1" onclick="toggleParagraph(4)"> HR skills</label>
+                <label><input type="checkbox" name="cleaning1" onclick="toggleParagraph(5)"> HR functions</label>
+            </div>
+			<div id="paragraphs">
+				<p id="para-1" class="paragraph">Performance management : A system that provides employees with feedback on their work to help them improve. HR managers use a variety of methods to provide feedback, such as peer and client evaluations.</p>
+				<p id="para-2" class="paragraph">Succession planning : A process that involves creating contingency plans for when key employees leave the company. This can help ensure continuity and save the company money. </p>
+				<p id="para-3" class="paragraph">HR analytics : The collection and analysis of data to gain insights into employee performance, engagement, and productivity. This data can help companies make more informed decisions about their workforce.</p>
+				<p id="para-4" class="paragraph">HR skills : Some traditional HR skills include expertise in HRM, strategic planning, collaboration, reporting abilities, and understanding of the business landscape.</p>
+				<p id="para-5" class="paragraph">HR functions : Some core HR functions include recruitment and selection, training and development, performance management, employee relations, employment law and compliance, compensation and benefits, and administration.</p>
+			</div>
+			</div> 
+		<div class="section">
+            <h6>FUNCTIONS OF HRM</h6>
+			<div class="checkbox-group">
+                <label><input type="checkbox" name="cleaning1" onclick="signParagraph(1)"> Job analysis and job design:</label>
+                <label><input type="checkbox" name="cleaning2" onclick="signParagraph(2)"> Employee hiring and selection:</label>
+                <label><input type="checkbox" name="cleaning3" onclick="signParagraph(3)"> Employee training and development:</label>
+                <label><input type="checkbox" name="cleaning4" onclick="signParagraph(4)"> Performance management:</label>
+                <label><input type="checkbox" name="cleaning5" onclick="signParagraph(5)"> Compensation and benefits: </label>
+                <label><input type="checkbox" name="cleaning6" onclick="signParagraph(6)"> Managerial relations:</label>
+                <label><input type="checkbox" name="cleaning7" onclick="signParagraph(7)"> Labour relations:</label>
+            </div>
+			<div id="paragraphs">
+				<p id="spara-1" class="paragraph">Job analysis is the process of describing the duties, responsibilities and operations of the job. It involves describing the job requirements such as skills, qualification and work experience. The process provides information about what the job involves and what human features are essential to carry out the job. This isn’t done by the hr managers, recruiters will be incharge of this task.</p>
+				<p id="spara-2" class="paragraph">Recruitment is one of the primary functions of human resource management. Employees are the asset to companies so it is necessary to hire potential employee. An HRM helps to source and identify the ideal candidates for interview and selection. The screened candidates are then taken through various rounds and are selected.</p>
+				<p id="spara-3" class="paragraph">After selecting the most suitable and eligible candidates, the next step of HR department is to arrange for their training. The role of HR should be that the new employees acquire the company specific knowlegde and skills to perform their task efficiently.</p>
+				<p id="spara-4" class="paragraph">After selected, training and motivation, the next task, a HR manager has to perform is to evaluate the personality and performance of each employee by quantitative factors (such as targets achieved). Effective performance management ensures that the output of the employees meets the goal and objectives of organization.</p>
+				<p id="spara-5" class="paragraph">Compensation and benefits represent a substantial part of total cost in most of the organizations. Also, HR can use benefits and compensation as a leverage to boost employee productivity as well as establish a good public image of the business.</p>
+				<p id="spara-6" class="paragraph"> The employment relationship, usually has two parts: labour relations and managerial relations. Labour relations is mainly between the workforce and the company. while the managerial relations determine the amount of work that needs to be done in a given day and about giving the appropriate project to the right group of employees to ensure efficient completion of the project.</p>
+				<p id="spara-7" class="paragraph">The HR manager is basically responsible for the control of labor (workers and employees) through human relation approaches. Employees differ in nature and therefore, it is but natural that due to any communication gap, labor relations may spoil within the organization. Therefore, the HR department should know the proper policies, rules and regulations with regard to labor relations. It not only results in industrial peace but also leads to better and higher sales targets.</p>
+				</div>
+				</div>
+				
+		<div class="section">
+            <h6>Hard skills:</h6>
+            <div class="checkbox-group">
+				<label><input type="checkbox" name="other1" onclick="otherParagraph(1)"> Business management skills</label>
+                <label><input type="checkbox" name="other2" onclick="otherParagraph(2)"> Finance skills</label>
+                <label><input type="checkbox" name="other3" onclick="otherParagraph(3)"> Legal knowledge</label>
+            </div>
+			<div id="paragraphs">
+			<p id="opara-1" class="paragraph">Business management skills : One of the key hard skills any HR professional needs to be successful is business management. Business management refers to the administrative tasks required to keep a business running.</p>
+			<p id="opara-2" class="paragraph">Finance skills : When people think of human resources skills, finance isn’t one that usually comes to mind. But financial skills are vital for anyone who is looking to explore a career in payroll and benefits administration.</p>
+			<p id="opara-3" class="paragraph">Legal knowledge : As employment law continues to change at both the state and local level, it’s important to stay current with how the law is changing.</p>
+			</div>
+		</div>
+		<div class="section">
+            <h6>SOFT SKILLS:</h6>
+            <div class="checkbox-group">
+				<label><input type="checkbox" name="other1" onclick="softParagraph(1)">Communication</label>
+				<label><input type="checkbox" name="other1" onclick="softParagraph(2)">Time management</label>
+				<label><input type="checkbox" name="other1" onclick="softParagraph(3)">Problem Solving</label>
+			</div>
+			<div id="paragraphs">
+			<p id="softpara-1" class="paragraph">Communication : HR is a people-focused function. Concerned with the management of an organisation’s workforce, HR professionals have to be expert communicators. As HR professionals are drawn upon to resolve conflict and uphold company standards, they need to be able to communicate clearly and effectively with their colleagues.</p>
+			<p id="softpara-2" class="paragraph">Time management : Time management plays heavily into the organisational skills required of HR professionals. Many HR tasks are time-sensitive meaning that time management is incredibly important when it comes to meeting deadlines.</li>
+			<p id="softpara-3" class="paragraph">Problem Solving : HR professionals are likely to encounter many difficult situations during their career, therefore, it’s handy to be a good problem solver to deal with these as they arise.</li>
+			</div>
+	</form>
+</div>
+</div>
+ <!-- Footer Start -->
+        <div class="online-counter">Users :&nbsp;<span id="userCount">1</span></div>
+		<!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+					<div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Udaipur Hotelier</h5>
+                        <a class="btn btn-link text-white-50" href="about.html">About Us</a>
+                        <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="category.html">Jobs</a>
+						<a class="btn btn-link text-white-50" href="registration_form.html">Registration form</a>
+                    </div>
+					<div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Contact</h5>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Udaipur</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91- 9079268663</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>Udaipurhotelier@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Udaipur Hotelier</a>, All Right Reserved.			
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+		<!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script>
+	function toggleParagraph(index) {
+      const paragraph = document.getElementById(`para-${index}`);
+      const checkbox = event.target;
+
+      if (checkbox.checked) {
+        paragraph.style.display = 'block';
+      } else {
+        paragraph.style.display = 'none';
+      }
+    }
+	// sign in hotel
+	function signParagraph(index) {
+      const paragraph = document.getElementById(`spara-${index}`);
+      const checkbox = event.target;
+
+      if (checkbox.checked) {
+        paragraph.style.display = 'block';
+      } else {
+        paragraph.style.display = 'none';
+      }
+    }
+	
+	//other section
+	function otherParagraph(index) {
+      const paragraph = document.getElementById(`opara-${index}`);
+      const checkbox = event.target;
+
+      if (checkbox.checked) {
+        paragraph.style.display = 'block';
+      } else {
+        paragraph.style.display = 'none';
+      }
+    }
+
+	//other section
+	function softParagraph(index) {
+      const paragraph = document.getElementById(`softpara-${index}`);
+      const checkbox = event.target;
+
+      if (checkbox.checked) {
+        paragraph.style.display = 'block';
+      } else {
+        paragraph.style.display = 'none';
+      }
+    }
+	
+    function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        // Capture data from the form
+        const formData = new FormData(document.getElementById('checklistForm'));
+
+        // Add date
+        const date = formData.get('date');
+        doc.text(`Date: ${date}`, 10, 10);
+
+        // Sections data
+        const sections = ['Cleaning Tasks', 'Maintenance Tasks', 'Safety Checks', 'Inventory Checks'];
+        let yPosition = 20;
+
+        sections.forEach((section, index) => {
+            doc.text(`${section}:`, 10, yPosition);
+            yPosition += 10;
+            
+            const checkboxes = formData.getAll(`${section.toLowerCase().replace(/ /g, '')}[]`);
+            checkboxes.forEach((checkbox, i) => {
+                doc.text(`${i+1}. ${checkbox}`, 10, yPosition);
+                yPosition += 5;
+            });
+        });
+
+        // Extra Notes
+        const extraNotes = formData.get('extraNotes');
+        if (extraNotes) {
+            doc.text(`Extra Notes: ${extraNotes}`, 10, yPosition);
+            yPosition += 10;
+        }
+
+        // Signatures
+        const employeeSignature = formData.get('employeeSignature');
+        const supervisorSignature = formData.get('supervisorSignature');
+        doc.text(`Employee Signature: ${employeeSignature}`, 10, yPosition);
+        yPosition += 10;
+        doc.text(`Supervisor Signature: ${supervisorSignature}`, 10, yPosition);
+
+        // Save PDF
+        doc.save('housekeeping_checklist.pdf');
+    }
+</script>
+</body>
+
+</html>

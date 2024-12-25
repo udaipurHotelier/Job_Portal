@@ -1,0 +1,48 @@
+header {
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+		.welcome {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+			text-align:center;
+        }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .job-list {
+            list-style: none;
+            padding: 0;
+        }
+        .job-item {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+        .job-item:last-child {
+            border-bottom: none;
+        }
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .job-details {
+            margin: 0.5rem 0;
+        }
+        .apply-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .apply-btn:hover {
+            background-color: #0056b3;
+        }

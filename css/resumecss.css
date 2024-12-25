@@ -1,0 +1,70 @@
+.resume_container {
+     width: 50%;
+     max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+	 display: block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+	margin-top:5px;
+}
+h6{
+text-align: center;
+color:red;
+}
+section {
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="date"], input[type="file"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+	style:bold;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+#selectedSkills, #selectedLanguages, #achievementsList, #selectedInterests {
+    margin-top: 10px;
+    padding: 10px;
+    background: #e9ecef;
+    border-radius: 4px;
+}
+.watermark
+{
+color: black;
+text-align: center;
+margin-top:20px;
+margin-bottom:2px;
+}
+
+	.online-counter {
+      font-size: 18px;
+      color: #00B074;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh; 
+    }

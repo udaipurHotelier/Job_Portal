@@ -1,0 +1,108 @@
+/* styles.css */
+   
+.job-details{
+	
+}
+#job-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 20px;
+		padding: 10px;	
+	}
+
+    
+    .job {
+        background-color: #fff;
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		width: 300px;
+		padding: 16px;
+		margin-bottom:20px;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+.job-post:hover {
+			transform: translateY(-25px);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+			background-color:#fff;
+			}
+    .job:last-child {
+        border-bottom: none;
+    }
+
+    .job h2 {
+        margin: 0;
+        font-size: 1.5em;
+		color: #00B074;
+    }
+
+    .job-details {
+        margin: 10px 0;
+        color: #555;
+    }
+
+    .job-actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .job-actions button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .submit-btn {
+        background-color: #4caf50;
+        color: white;
+    }
+
+    .save-btn {
+        background-color: #f4f4f4;
+        color: #555;
+    }
+
+    .save-btn.saved {
+        background-color: #ff6b6b;
+        color: white;
+    }
+
+    .expiry-date {
+        font-weight: bold;
+    }
+
+    .expiry-date.warning {
+        color: red;
+    }
+	.hover-text:hover {
+            text-decoration: underline;
+            color: #007BFF;
+            cursor: pointer;
+}
+.load{
+	text-align:right;
+	margin-right:50px;
+}
+
+		.load-more {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+		text-align:right;
+		align:right;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+	.online-counter {
+      font-size: 18px;
+      color: #00B074;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 10vh; 
+    }

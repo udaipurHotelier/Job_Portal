@@ -1,0 +1,55 @@
+
+.header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            color: white;
+        }
+        .search-bar {
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr auto;
+            gap: 10px;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 100%;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+        }
+        .results {
+            padding: 0px;
+			
+        }
+		.candidate-list{
+			text-align;center;
+			font-family:bold;
+			margin:30px;
+		}
+		.candidate-list h2{
+			text-align:center;
+		}
+        .candidate {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .candidate img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .candidate .info {
+            flex: 1;
+        }
+        .candidate .actions button {
+            margin-right: 10px;
+        }
