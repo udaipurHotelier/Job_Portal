@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Udaipur Hotelier Admin Dashboard</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+<link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/Admin_dashcss.css">
+
+</head>
+<body>
+  <header>
+    <div class="welcome-corner">
+      <span>Welcome, Admin</span>
+      <a id="logout-btn" href="Admin_Login.html">Logout</a>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-bar" placeholder="Search..." oninput="searchItems()">
+	  <button type="search-btn" id="search-btn">Search</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="dashboard">
+      <div class="heading-row">
+        <a class="heading" id="advertisement" href="Admin_Ads_Page.html">Advertisement</a>
+        <a class="heading" id="update-db" href="Admin_Candidate_Database.html">Update Database</a>
+        <a class="heading" id="update-department" href="Admin_Department_Designation.html">Update Department</a>
+      </div>
+      <div class="heading-row">
+        <a class="heading" id="bulk-resume-add" href="Admin_Bulk_Resume.html" >Bulk Resume Add</a>
+        <a class="heading" id="job-updates">Job Updates</a>
+        <a class="heading" id="get-in-touch" href="Admin_Get_In_touch.html">Get in Touch</a>
+      </div>
+      <div class="heading-row">
+        <a class="heading" id="emails" href="">Emails</a>
+        <a class="heading" id="unread-messages" href="">Unread Messages</a>
+        <a class="heading" id="reviews" href="">Review</a>
+      </div>
+      <div class="heading-row">
+        <div class="heading" id="active-users">Active No of Users <span id="active-users-count"> 0</span></div>
+        <div class="heading" id="active-employers">Active No of Employers <span id="active-employers-count"> 0</span></div>
+        <div class="heading" id="visited-users">No of Visited Users <span id="visited-users-count"> 0</span></div>
+      </div>
+    </div>
+  </main>
+  <script>
+  // Function to highlight searched items
+function searchItems() {
+  const searchText = document.getElementById('search-bar').value.toLowerCase();
+  const headings = document.querySelectorAll('.heading');
+  
+  headings.forEach((heading) => {
+    const text = heading.textContent.toLowerCase();
+    if (text.includes(searchText)) {
+      heading.style.backgroundColor = '#FFCCFF'; // Highlight searched item
+    } else {
+      heading.style.backgroundColor = '#00B074;'; // Default background
+    }
+  });
+}
+
+// Function to increment or decrement user counts
+function updateCount(id, increment = true) {
+  const element = document.getElementById(id);
+  let currentCount = parseInt(element.textContent);
+  currentCount = increment ? currentCount + 1 : currentCount - 1;
+  element.textContent = currentCount;
+}
+
+// Example of updating counts
+setInterval(() => {
+  updateCount('visited-users-count', Math.random() > 0.5); // Random increment or decrement
+}, 2000);
+
+// Example of updating the Active Users
+setInterval(() => {
+  const isIncrement = Math.random() > 0.5;
+  updateCount('active-users-count', isIncrement);
+}, 3000);
+
+setInterval(() => {
+  const isIncrement = Math.random() > 0.5;
+  updateCount('active-employers-count', isIncrement);
+}, 4000);
+
+  </script>
+</body>
+</html>

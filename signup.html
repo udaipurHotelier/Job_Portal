@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Udaipur Hotelier</title>
+  <link rel="stylesheet" href="css/logincss.css">
+</head>
+<body>
+
+  <!-- Main signup container -->
+  <section class="login-container">
+    <div class="form-container">
+      <h2>Signup - Udaipur Hotelier</h2>
+      
+      <!-- Signup Form -->
+      <form id="signupForm" method="POST">
+        <div class="input-group">
+          <input type="text" id="newUsername" name="newUsername" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+          <input type="email" id="newEmail" name="newEmail" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <input type="password" id="newPassword" name="newPassword" placeholder="Password" required>
+        </div>
+        
+        <button type="submit">Signup</button>
+      </form>
+
+      <!-- Link to redirect to login page -->
+      <div class="links">
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

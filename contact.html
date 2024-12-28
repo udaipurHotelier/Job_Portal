@@ -157,6 +157,103 @@
       align-items: center;
       height: 10vh; 
     }
+	/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.contact-container {
+    background-color: #fff;
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+	margin-top:20px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #00B074;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color:#00B074;
+    color: #fff;
+    font-size: 16px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.submit-btn:active {
+    background-color: #003f75;
+}
+
+/* Confirmation Message */
+.confirmation-message {
+    display: none;
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border: 1px solid #c3e6cb;
+    font-size: 16px;
+    text-align: center;
+}
+
+.confirmation-message span {
+    font-weight: bold;
+    color: #007BFF;
+}
+
 	</style>
 </head>
 
@@ -203,15 +300,7 @@
                     </ol>
                 </nav>
             </div>
-			
-        </div>
-        <!-- Header End -->
-		
-    
-        <!-- Header End -->
-	
-
-        <!-- Contact Start -->
+		</div>
         <div class="container-xxl py-5">
             <div class="container">
                 <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Contact For Any Query</h1>
@@ -247,70 +336,36 @@
 							
                         </div>
                     </div>
-                    <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <iframe class="position-relative rounded w-100 h-100"
-                            src="https://www.google.com/maps/embed?pb=1m18!1m12!1m3!1d116078.31354738896!2d73.6224705470094!3d24.608263766883415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e56550a14411%3A0xdbd8c28455b868b0!2sUdaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1733830300139!5m2!1sen!2sin" 
-					 frameborder="0" style="min-height: 400px; border:0;" allowfullscreen="" aria-hidden="false"
-                            tabindex="0" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="wow fadeInUp" data-wow-delay="0.5s">
-                            <form>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                            <label for="name">Your Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                            <label for="email">Your Email</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                            <label for="subject">Subject</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                                            <label for="message">Message</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+               <div class="contact-container">
+				<h1>Get in Touch</h1>
+				<form id="contactForm">
+				<div class="form-group">
+                <label for="username"><b>Name</b></label>
+                <input type="text" id="username" name="username" required placeholder="Enter your name">
+				</div>
+
+				<div class="form-group">
+                <label for="email"><b>Email</b></label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+				</div>
+
+				<div class="form-group">
+                <label for="message"><b>Message</b></label>
+                <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+				</div>
+
+				<button type="submit" class="submit-btn"><b>Submit</b></button>
+			</form>
+
+			<div id="confirmationMessage" class="confirmation-message">
+            <p><b>Thank you for your submission, <span id="userNameDisplay"></span> !</b></p>
+			</div>
+			</div>
+			   </div>
             </div>
         </div>
         
-		<!-- Live Chat -->
-		<div id="chat-container">
-    <div id="chat-header">
-      <h3>Live Chat</h3>
-      <button id="close-chat">×</button>
-    </div>
-    <div id="chat-messages"></div>
-    <div id="chat-input-container">
-      <input type="text" id="chat-input" placeholder="Type your message..." />
-      <button id="send-message">Send</button>
-    </div>
-  </div>
-
-  <!-- Chat Toggle Button -->
-  <div id="chat-toggle">
-    <button id="open-chat">Chat with us</button>
-  </div>
-
-        <!-- Footer Start -->
+		<!-- Footer Start -->
         <div class="online-counter">Users :&nbsp;<span id="userCount">1</span></div>
 		<!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -385,67 +440,35 @@
 
     // Optionally, update status every minute
     setInterval(updateStatus, 60000);
-	
-	// live chat
-	// DOM Elements
-const chatContainer = document.getElementById('chat-container');
-const openChatBtn = document.getElementById('open-chat');
-const closeChatBtn = document.getElementById('close-chat');
-const chatMessages = document.getElementById('chat-messages');
-const chatInput = document.getElementById('chat-input');
-const sendMessageBtn = document.getElementById('send-message');
+		
+	document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();  // Prevent the default form submission behavior
 
-// Toggle chat visibility
-openChatBtn.addEventListener('click', () => {
-  chatContainer.style.display = 'flex';
-  openChatBtn.style.display = 'none';
+    // Get the form data
+    let formData = {
+        username: document.getElementById("username").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+        timestamp: new Date().toISOString()
+    };
+
+    // Retrieve existing submissions from localStorage (if any), or create a new array
+    let submissions = JSON.parse(localStorage.getItem("submissions")) || [];
+
+    // Add the new submission
+    submissions.push(formData);
+
+    // Save the updated data back to localStorage
+    localStorage.setItem("submissions", JSON.stringify(submissions));
+
+    // Show the confirmation message
+    document.getElementById("userNameDisplay").textContent = formData.username;
+    document.getElementById("confirmationMessage").style.display = "block";
+
+    // Reset the form
+    document.getElementById("contactForm").reset();
 });
 
-closeChatBtn.addEventListener('click', () => {
-  chatContainer.style.display = 'none';
-  openChatBtn.style.display = 'block';
-});
-
-// Handle sending messages
-sendMessageBtn.addEventListener('click', sendMessage);
-chatInput.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') sendMessage();
-});
-
-function sendMessage() {
-  const message = chatInput.value.trim();
-  if (message === '') return;
-
-  // Display user message
-  displayMessage(`You: ${message}`, 'user');
-
-  // Clear input
-  chatInput.value = '';
-
-  // Auto-reply after 1 second
-  setTimeout(() => {
-    displayMessage('Support Team: Thank you for reaching out! Sorry But This is Trial Version', 'support');
-  }, 1000);
-}
-
-function displayMessage(text, sender) {
-  const messageElement = document.createElement('div');
-  messageElement.textContent = text;
-  messageElement.style.margin = '5px 0';
-  messageElement.style.padding = '8px';
-  messageElement.style.borderRadius = '5px';
-
-  if (sender === 'user') {
-    messageElement.style.backgroundColor = '#e1f7ec';
-    messageElement.style.textAlign = 'right';
-  } else {
-    messageElement.style.backgroundColor = '#f1f1f1';
-  }
-
-  chatMessages.appendChild(messageElement);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-	
   </script>
 </body>
 

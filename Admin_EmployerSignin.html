@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employer Registration</title>
+  <style>
+    
+    .form-container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 0 auto;
+	  margin-top:40px;
+	  
+    }
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .form-group input:disabled {
+      background-color: #00B074;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #00B074;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      display: none;
+    }
+    .suggestion {
+      color: #00B074;
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Employer Registration</h2>
+    <form id="employerForm">
+      <div class="form-group">
+        <label for="name">Employer Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter employer name" required>
+        <div class="error" id="nameError">Employer name is required</div>
+      </div>
+      <div class="form-group">
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" name="companyName" placeholder="Enter company name" required>
+        <div class="error" id="companyNameError">Company name is required</div>
+      </div>
+      <div class="form-group">
+        <label for="email">Official Email ID</label>
+        <input type="email" id="email" name="email" placeholder="Enter official email address" required>
+        <div class="error" id="emailError">Please enter a valid official email address</div>
+      </div>
+      <div class="form-group hidden" id="verifyEmailSection">
+        <button type="button" class="btn" onclick="verifyEmail()">Verify Your Official Email</button>
+        <div class="error" id="verifyEmailError">Verification failed. Please check your email.</div>
+      </div>
+      <div class="form-group">
+        <label for="propertyCode">Property Code</label>
+        <input type="text" id="propertyCode" name="propertyCode" disabled>
+      </div>
+      <div class="form-group">
+        <label for="password">Initial Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter initial password" required>
+        <div class="error" id="passwordError">Password is required</div>
+      </div>
+      
+      <!-- Phone Number Field -->
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter 10-digit phone number" required>
+        <div class="error" id="phoneNumberError">Phone number must be exactly 10 digits</div>
+      </div>
+
+      <!-- Address Fields -->
+      <div class="form-group">
+        <label for="addressLine1">Address Line 1</label>
+        <input type="text" id="addressLine1" name="addressLine1" placeholder="Enter address line 1" required>
+        <div class="error" id="addressLine1Error">Address Line 1 is required</div>
+      </div>
+      <div class="form-group">
+        <label for="addressLine2">Address Line 2</label>
+        <input type="text" id="addressLine2" name="addressLine2" placeholder="Enter address line 2">
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="Enter city" required>
+        <div class="error" id="cityError">City is required</div>
+      </div>
+      <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" id="state" name="state" placeholder="Enter state" required>
+        <div class="error" id="stateError">State is required</div>
+      </div>
+      <div class="form-group">
+        <label for="postalCode">Postal Code</label>
+        <input type="text" id="postalCode" name="postalCode" placeholder="Enter postal code" required>
+        <div class="error" id="postalCodeError">Postal code is required</div>
+      </div>
+
+      <button type="button" class="btn" onclick="submitForm()">Create Employer</button>
+    </form>
+  </div>
+
+  <script>
+    let employerCount = 1; // Counter for generating unique Property Codes
+
+    // Function to generate Property Code based on Company Name
+    function generatePropertyCode(companyName) {
+      const seriesNumber = String(employerCount).padStart(3, '0');
+      return `${companyName.toLowerCase()}-${seriesNumber}`;
+    }
+
+    // Update the Property Code when the Company Name is entered
+    document.getElementById('companyName').addEventListener('input', function() {
+      const companyName = document.getElementById('companyName').value.trim();
+      if (companyName) {
+        document.getElementById('propertyCode').value = generatePropertyCode(companyName);
+      }
+    });
+
+    employerCount++;
+
+    // Validate the official email (e.g., must end with @company.com)
+    function validateEmail(email, companyName) {
+      const domain = email.split('@')[1];
+      const companyDomain = companyName.toLowerCase() + '.com';
+      return domain && domain.toLowerCase() === companyDomain;
+    }
+
+    // Email verification process (simulated)
+    function verifyEmail() {
+      const email = document.getElementById('email').value.trim();
+
+      // Check if the email is valid
+      const companyName = document.getElementById('companyName').value.trim();
+      if (validateEmail(email, companyName)) {
+        document.getElementById('verifyEmailError').style.display = 'none';
+        alert('Email verified successfully!');
+        document.getElementById('verifyEmailSection').style.display = 'none'; // Hide the verify button after success
+      } else {
+        document.getElementById('verifyEmailError').style.display = 'block';
+      }
+    }
+
+    // Show email verification button when a valid email is entered
+    document.getElementById('email').addEventListener('input', function() {
+      const email = document.getElementById('email').value.trim();
+      const companyName = document.getElementById('companyName').value.trim();
+      if (email && companyName && validateEmail(email, companyName)) {
+        document.getElementById('verifyEmailSection').style.display = 'block';
+      } else {
+        document.getElementById('verifyEmailSection').style.display = 'none';
+      }
+    });
+
+    // Validate Phone Number (10 digits)
+    function validatePhoneNumber(phoneNumber) {
+      return /^[0-9]{10}$/.test(phoneNumber);
+    }
+
+    // Validate Postal Code (simple check for 5 digits)
+    function validatePostalCode(postalCode) {
+      return /^[0-9]{5}$/.test(postalCode);
+    }
+
+    // Form validation and submission
+    function submitForm() {
+      const name = document.getElementById('name').value.trim();
+      const companyName = document.getElementById('companyName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const phoneNumber = document.getElementById('phoneNumber').value.trim();
+      const addressLine1 = document.getElementById('addressLine1').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const state = document.getElementById('state').value.trim();
+      const postalCode = document.getElementById('postalCode').value.trim();
+
+      let valid = true;
+
+      // Validate Employer Name
+      if (!name) {
+        document.getElementById('nameError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('nameError').style.display = 'none';
+      }
+
+      // Validate Company Name
+      if (!companyName) {
+        document.getElementById('companyNameError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('companyNameError').style.display = 'none';
+      }
+
+      // Validate Email
+      if (!email || !validateEmail(email, companyName)) {
+        document.getElementById('emailError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('emailError').style.display = 'none';
+      }
+
+      // Validate Password
+      if (!password) {
+        document.getElementById('passwordError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('passwordError').style.display = 'none';
+      }
+
+      // Validate Phone Number
+      if (!phoneNumber || !validatePhoneNumber(phoneNumber)) {
+        document.getElementById('phoneNumberError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('phoneNumberError').style.display = 'none';
+      }
+
+      // Validate Address Fields
+      if (!addressLine1) {
+        document.getElementById('addressLine1Error').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('addressLine1Error').style.display = 'none';
+      }
+
+      if (!city) {
+        document.getElementById('cityError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('cityError').style.display = 'none';
+      }
+
+      if (!state) {
+        document.getElementById('stateError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('stateError').style.display = 'none';
+      }
+
+      if (!postalCode || !validatePostalCode(postalCode)) {
+        document.getElementById('postalCodeError').style.display = 'block';
+        valid = false;
+      } else {
+        document.getElementById('postalCodeError').style.display = 'none';
+      }
+
+      // Only submit the form if all fields are valid
+      if (valid) {
+        alert(`Employer Created Successfully!\n\nName: ${name}\nCompany Name: ${companyName}\nEmail: ${email}\nProperty Code: ${document.getElementById('propertyCode').value}`);
+        document.getElementById('employerForm').reset();
+        document.getElementById('propertyCode').value = ''; // Clear the Property Code
+        employerCount++; // Increment the counter for the next employer
+      } else {
+        alert('Please fill in all the required fields correctly.');
+      }
+    }
+
+    // Reset error and suggestion on input change for each field
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', function() {
+        const errorElement = document.getElementById(input.id + 'Error');
+        
+        // Reset error message when the user starts editing
+        errorElement.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

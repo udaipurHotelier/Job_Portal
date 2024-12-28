@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Ads Page</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .ads_container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .form-section, .ads-section {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        form input, form select, form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #555;
+        }
+
+        .ads-section div {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        .ad-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ad-card button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .ad-card button:hover {
+            background: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+<div class="container-xxl bg-white p-0">
+<!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="Admin_Dashboard.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h4 class="m-0 text-primary">Udaipur Hotelier</h4>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="Admin_Ads_Page.html" class="nav-item nav-link active">ADS</a>
+                    <a href="Admin_Candidate_Database.html" class="nav-item nav-link ">Database</a>
+                    <a href="Admin_Department_Designation.html" class="nav-item nav-link ">Department</a>
+					<a href="Admin_Get_In_touch.html" class="nav-item nav-link ">Get In Touch</a>
+                     <a href="Admin_Bulk_Resume.html" class="nav-item nav-link">Bulk Resume</a>
+                     <a href="#" class="nav-item nav-link">Job</a>
+                     <a href="#" class="nav-item nav-link ">Emails</a>
+                     <a href="#" class="nav-item nav-link ">Review</a>
+                     <a href="#" class="nav-item nav-link">Membership</a>
+					
+				</div>
+			</div>
+        </nav>
+</div>        <!-- Navbar End -->
+    <div class="ads_container">
+        <header>
+            <h1>Admin Ads Management</h1>
+        </header>
+        
+        <section class="form-section">
+            <h2>Create New Ad</h2>
+            <form id="adForm">
+                <label for="adTitle">Ad Title:</label>
+                <input type="text" id="adTitle" required>
+
+                <label for="adUrl">Target URL:</label>
+                <input type="url" id="adUrl" required>
+
+                <label for="adPages">Display on Pages (comma-separated):</label>
+                <input type="text" id="adPages" placeholder="e.g., home, products" required>
+
+                <label for="adVisibility">Ad Visibility (days):</label>
+                <select id="adVisibility">
+                    <option value="1">1 Day</option>
+                    <option value="3">3 Days</option>
+                    <option value="7">7 Days</option>
+                    <option value="15">15 Days</option>
+                    <option value="30">30 Days</option>
+                </select>
+
+                <label for="adImage">Ad Image URL:</label>
+                <input type="url" id="adImage" placeholder="https://example.com/image.jpg" required>
+
+                <button type="submit">Create Ad</button>
+            </form>
+        </section>
+
+        <section class="ads-section">
+            <h2>Current Ads</h2>
+            <div id="currentAds"></div>
+
+            <h2>Deleted Ads</h2>
+            <div id="deletedAds"></div>
+
+            <h2>Temporary Hold Ads</h2>
+            <div id="tempHoldAds"></div>
+
+            <h2>Expired Ads</h2>
+            <div id="expiredAds"></div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const adForm = document.getElementById('adForm');
+            const currentAdsContainer = document.getElementById('currentAds');
+            const deletedAdsContainer = document.getElementById('deletedAds');
+            const tempHoldAdsContainer = document.getElementById('tempHoldAds');
+            const expiredAdsContainer = document.getElementById('expiredAds');
+
+            const ADS_KEY = 'ads';
+
+            function loadAds() {
+                const ads = JSON.parse(localStorage.getItem(ADS_KEY)) || [];
+                const now = new Date().getTime();
+                const currentAds = ads.filter(ad => ad.status === 'active' && now < new Date(ad.expiry).getTime());
+                const deletedAds = ads.filter(ad => ad.status === 'deleted');
+                const tempHoldAds = ads.filter(ad => ad.status === 'hold');
+                const expiredAds = ads.filter(ad => ad.status === 'active' && now >= new Date(ad.expiry).getTime());
+
+                renderAds(currentAdsContainer, currentAds, 'active');
+                renderAds(deletedAdsContainer, deletedAds, 'deleted');
+                renderAds(tempHoldAdsContainer, tempHoldAds, 'hold');
+                renderAds(expiredAdsContainer, expiredAds, 'expired');
+            }
+
+            function saveAds(ads) {
+                localStorage.setItem(ADS_KEY, JSON.stringify(ads));
+            }
+
+            function renderAds(container, ads, type) {
+                container.innerHTML = '';
+                ads.forEach(ad => {
+                    const adCard = document.createElement('div');
+                    adCard.className = 'ad-card';
+                    adCard.innerHTML = `
+                        <div>
+                            <h3>${ad.title}</h3>
+                            <p>URL: <a href="${ad.url}" target="_blank">${ad.url}</a></p>
+                            <p>Pages: ${ad.pages.join(', ')}</p>
+                            <p>Expiry: ${ad.expiry}</p>
+                        </div>
+                        <div>
+                            ${type === 'active' ? `<button onclick="deleteAd('${ad.id}')">Delete</button>` : ''}
+                            ${type === 'active' ? `<button onclick="holdAd('${ad.id}')">Hold</button>` : ''}
+                        </div>
+                    `;
+                    container.appendChild(adCard);
+                });
+            }
+
+            function deleteAd(id) {
+                const ads = JSON.parse(localStorage.getItem(ADS_KEY)) || [];
+                const updatedAds = ads.map(ad => ad.id === id ? { ...ad, status: 'deleted' } : ad);
+                saveAds(updatedAds);
+                loadAds();
+            }
+
+            function holdAd(id) {
+                const ads = JSON.parse(localStorage.getItem(ADS_KEY)) || [];
+                const updatedAds = ads.map(ad => ad.id === id ? { ...ad, status: 'hold' } : ad);
+                saveAds(updatedAds);
+                loadAds();
+            }
+
+            adForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const title = document.getElementById('adTitle').value;
+                const url = document.getElementById('adUrl').value;
+                const pages = document.getElementById('adPages').value.split(',').map(p => p.trim());
+                const visibility = parseInt(document.getElementById('adVisibility').value, 10);
+                const image = document.getElementById('adImage').value;
+
+                const ads = JSON.parse(localStorage.getItem(ADS_KEY)) || [];
+                const expiry = new Date().getTime() + visibility * 24 * 60 * 60 * 1000;
+
+                const newAd = {
+                    id: `ad-${Date.now()}`,
+                    title,
+                    url,
+                    pages,
+                    visibility,
+                    image,
+                    expiry,
+                    status: 'active',
+                    clicks: 0
+                };
+
+                ads.push(newAd);
+                saveAds(ads);
+                loadAds();
+                adForm.reset();
+            });
+
+            loadAds();
+        });
+    </script>
+</body>
+</html>

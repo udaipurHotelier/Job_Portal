@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Bulk Resume</title>
+	 <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+	<link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/employer_BulkResumecss.css">
+	<style>
+	</style>	
+</head>
+<body>
+		<!-- Nav bar Start -->
+	<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="Employer.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h4 class="m-0 text-primary">Udaipur Hotelier Employer</h4>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="Job-posting.html" class="nav-item nav-link ">Job Post</a>
+                    <a href="FindACandidate.html" class="nav-item nav-link ">Candidate</a>
+                    <a href="Employer_bulkResume.html" class="nav-item nav-link active">Bulk Resume</a>
+                     <a href="Job_Listings_Preview.html" class="nav-item nav-link">Listed Job</a>
+                     <a href="404.html" class="nav-item nav-link">Membership</a>
+				</div>
+			</div>
+        </nav>
+
+    <div class="container">
+        <header>
+            <h1>Welcome, <span id="username">Vishnupriya Hotel</span></h1>
+			
+        </header>
+
+        <div class="search-section">
+            <input type="text" id="search-bar" placeholder="🔍 Search Resumes..." oninput="searchResumes()">
+        </div>
+
+        <div class="resume-section">
+            <div class="select-all-container">
+                <label>
+                    <input type="checkbox" id="select-all" onclick="toggleSelectAll()"> Select All (Max: 10)
+                </label>
+            </div>
+            <div class="resume-list">
+                <div class="resume-header">
+                    <span>Candidate Name</span>
+                    <span>Department</span>
+                    <span>Designation</span>
+                    <span>Actions</span>
+                    <span>Select</span>
+                </div>
+                <div id="resume-items"></div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="membership-info">
+                Membership Plan: <span class="highlight">Paid</span>
+            </div>
+            <div class="download-info">
+                Downloads Remaining Today: <span id="remaining-downloads" class="highlight">10</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+	let selectedCount = 0; // Track the number of selected checkboxes
+let downloadCount = 0; // Track downloads
+const maxDownloads = 10; // Limit per day
+
+const resumes = [
+    { name: 'John Doe', department: 'Engineering', designation: 'Software Engineer', resumeLink: 'resume1.pdf' },
+    { name: 'Jane Smith', department: 'Marketing', designation: 'Marketing Manager', resumeLink: 'resume2.pdf' },
+    { name: 'Bob Johnson', department: 'Sales', designation: 'Sales Executive', resumeLink: 'resume3.pdf' },
+    { name: 'Alice Brown', department: 'HR', designation: 'HR Manager', resumeLink: 'resume4.pdf' },
+	{ name: 'John Doe', department: 'Engineering', designation: 'Software Engineer', resumeLink: 'resumes/john_doe.pdf' },
+            { name: 'Jane Smith', department: 'Marketing', designation: 'Marketing Manager', resumeLink: 'resumes/jane_smith.pdf' },
+            { name: 'Alice Brown', department: 'HR', designation: 'HR Specialist', resumeLink: 'resumes/alice_brown.pdf' },
+            { name: 'Tom Wilson', department: 'Sales', designation: 'Sales Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+			{ name: 'AKASH SONI', department: 'HUMAN RESOURCE', designation: 'MANAGER', resumeLink: 'resumes/john_doe.pdf' },
+            { name: 'NISHA SONI', department: 'ACCOUNTS', designation: ' Manager', resumeLink: 'resumes/jane_smith.pdf' },
+            { name: 'TANISHA SONI', department: 'ADMIN & HR', designation: 'HR Specialist', resumeLink: 'resumes/alice_brown.pdf' },
+            { name: 'LILLY SONI', department: 'FRONT OFFICE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'KIRAN SONI', department: 'HOUSE KEEPING', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'VIHU SONI', department: 'FRONT OFFICE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'KAILASH SONI', department: 'FRONT OFFICE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'ANIL SONI', department: 'MAINTENANCE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'POOJA SONI', department: 'MAINTENANCE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'POOJA BHAVSAR', department: 'FRONT OFFICE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'LAKSHITA BHAVSAR', department: 'FRONT OFFICE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'CHETNA SONI', department: 'FRONT OFFICE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'JAYANT SONI', department: 'FRONT OFFICE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' },
+            { name: 'SHASHANK SONI', department: 'FRONT OFFICE', designation: 'Executive', resumeLink: 'resumes/tom_wilson.pdf' }
+    // Add more resumes as needed
+];
+
+function searchResumes() {
+    const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+    const filteredResumes = resumes.filter(resume =>
+        resume.name.toLowerCase().includes(searchTerm) ||
+        resume.department.toLowerCase().includes(searchTerm) ||
+        resume.designation.toLowerCase().includes(searchTerm)
+    );
+    displayResumes(filteredResumes);
+}
+
+function displayResumes(resumeList) {
+    const resumeItems = document.getElementById('resume-items');
+    resumeItems.innerHTML = ''; // Clear previous content
+
+    if (resumeList.length === 0) {
+        // Show "No Data Found" message if the list is empty
+        const noDataMessage = document.createElement('div');
+        noDataMessage.classList.add('no-data-message');
+        noDataMessage.textContent = "No data found.";
+        resumeItems.appendChild(noDataMessage);
+        return;
+    }
+
+    resumeList.forEach((resume, index) => {
+        const resumeItem = document.createElement('div');
+        resumeItem.classList.add('resume-item');
+        resumeItem.innerHTML = `
+            <span>${resume.name}</span>
+            <span>${resume.department}</span>
+            <span>${resume.designation}</span>
+            <button onclick="downloadResume('${resume.resumeLink}', ${index})">Download</button>
+            <input type="checkbox" id="checkbox-${index}" onclick="toggleSelect(event)">
+        `;
+        resumeItems.appendChild(resumeItem);
+    });
+
+    initializeCheckboxes();
+}
+
+
+function toggleSelectAll() {
+    const isChecked = document.getElementById('select-all').checked;
+    const checkboxes = document.querySelectorAll('.resume-item input[type="checkbox"]');
+
+    selectedCount = 0;
+    checkboxes.forEach(checkbox => {
+        if (isChecked && selectedCount < 10) {
+            checkbox.checked = true;
+            selectedCount++;
+        } else {
+            checkbox.checked = false;
+        }
+    });
+
+    updateSelectAllState();
+}
+
+function toggleSelect(event) {
+    const checkbox = event.target;
+
+    if (checkbox.checked) {
+        if (selectedCount >= 10) {
+            alert("You can only select up to 10 resumes today.");
+            checkbox.checked = false;
+            return;
+        }
+        selectedCount++;
+    } else {
+        selectedCount--;
+    }
+
+    updateSelectAllState();
+}
+
+function updateSelectAllState() {
+    const checkboxes = document.querySelectorAll('.resume-item input[type="checkbox"]');
+    const selectAllCheckbox = document.getElementById('select-all');
+
+    if (selectedCount === checkboxes.length) {
+        selectAllCheckbox.checked = true;
+        selectAllCheckbox.indeterminate = false;
+    } else if (selectedCount > 0) {
+        selectAllCheckbox.checked = false;
+        selectAllCheckbox.indeterminate = true;
+    } else {
+        selectAllCheckbox.checked = false;
+        selectAllCheckbox.indeterminate = false;
+    }
+
+    checkboxes.forEach(checkbox => {
+        if (!checkbox.checked && selectedCount >= 10) {
+            checkbox.disabled = true;
+        } else {
+            checkbox.disabled = false;
+        }
+    });
+}
+
+function downloadResume(resumeLink, index) {
+    if (downloadCount >= maxDownloads) {
+        alert("You have reached your download limit for today.");
+        return;
+    }
+
+    downloadCount++;
+    alert(`Downloading resume: ${resumeLink}`);
+    const link = document.createElement('a');
+    link.href = resumeLink;
+    link.download = resumeLink;
+    link.click();
+
+    document.getElementById('remaining-downloads').textContent = `${maxDownloads - downloadCount}`;
+}
+
+// Initialize the page
+displayResumes(resumes);
+
+	</script>
+</body>
+</html>
