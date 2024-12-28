@@ -1,0 +1,154 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+header #username {
+    font-weight: bold;
+}
+
+/* Search Section */
+.search-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#search-bar {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#search-bar:focus {
+    border-color: #007bff;
+}
+
+/* Resume Section */
+.resume-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.select-all-container {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.resume-header,
+.resume-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.resume-header {
+    font-weight: bold;
+    color: #495057;
+    background-color: #f1f3f5;
+}
+
+.resume-item {
+    transition: background-color 0.3s;
+}
+
+.resume-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Column Styles */
+.resume-header span,
+.resume-item span {
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.resume-item button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.resume-item button:hover {
+    background-color: #218838;
+}
+
+.resume-item button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.resume-item input[type="checkbox"] {
+    flex: 0.2;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+footer .highlight {
+    font-weight: bold;
+    color: #007bff;
+}
+.no-data-message {
+    text-align: center;
+    color: #6c757d;
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 20px 0;
+}	
+	
