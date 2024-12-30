@@ -20,7 +20,7 @@ document.getElementById("employerLoginForm")?.addEventListener("submit", functio
 
   // Simple validation and redirection logic for employer
   if (username === "employer" && password === "employer123") {
-    window.location.href = "employer.html"; // Redirect to employer home page
+    window.location.href = "Employer.html"; // Redirect to employer home page
   } else {
     alert("Invalid login credentials.");
   }
@@ -34,7 +34,7 @@ document.getElementById("adminLoginForm")?.addEventListener("submit", function(e
 
   // Simple validation and redirection logic for admin
   if (username === "admin" && password === "admin123") {
-    window.location.href = "admin_dashboard.html"; // Redirect to admin dashboard
+    window.location.href = "Admin_Dashboard.html"; // Redirect to admin dashboard
   } else {
     alert("Invalid login credentials.");
   }
