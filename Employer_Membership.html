@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udaipur Hotelier - Membership Plans</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/emp_membercss.css" rel="stylesheet">
+    
+</head>
+<body>
+	<!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="employer.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h4 class="m-0 text-primary">Udaipur Hotelier</h4>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="Job-posting.html" class="nav-item nav-link ">Job Post</a>
+                    <a href="FindACandidate.html" class="nav-item nav-link ">Candidate</a>
+                    <a href="Employer_bulkResume.html" class="nav-item nav-link ">Bulk Resume</a>
+                     <a href="Job_Listings_Preview.html" class="nav-item nav-link">Listed Job</a>
+                     <a href="404.html" class="nav-item nav-link active">Membership</a>
+				</div>
+			</div>
+        </nav>
+
+    <div class="header">
+        <h1>Welcome to Udaipur Hotelier</h1>
+		<span>NOTE : This Website is ON BETA Version, don't Pay Any Money</span>
+        <div id="welcomeMessage"></div>
+        
+    </div>
+    
+    <div class="plans-container">
+        <div class="plan" id="plan1">
+            <h2>BASIC PLAN</h2>
+            <p class="price">INR 299/- PM</p>
+			<small><strong>*GST as applicable</strong></small>
+            <p><strong>Membership: Basic</strong></p>
+            <ul>
+                <li><input type="checkbox" checked disabled><b> 5 job location</b></li>
+                <li><input type="checkbox" checked disabled><strong> 20 Candidate Details</strong></li>
+                <li><input type="checkbox" checked disabled><strong> Search 10 Candidate</strong></li>
+                <li><input type="checkbox" checked disabled><strong> Applies expiry 30 days</strong></li>
+                <li>✖<button class="cross-btn"><strong> Jobseeker contact details are visible</strong></button></li>
+                <li>✖<button class="cross-btn"><strong>only 10 Resume Download</strong></button></li>
+                <li>✖<button class="cross-btn"><strong>Job Branding </strong></button></li>
+                <li><b>Job validity 15 days</b></li>
+            </ul>
+            <button class="buy-now">BUY NOW</button>
+        </div>
+
+        <div class="plan" id="plan2">
+            <h2>ADVANCE PLAN</h2>
+            <p class="price">INR 399/- PM</p>
+			<small><strong>*GST as applicable</strong></small>
+            <p><strong>Membership: Advance </strong></p>
+            <ul>
+                <li><input type="checkbox" checked disabled> Upto 250 character job description</li>
+                <li><input type="checkbox" checked disabled> 6 job locations</li>
+                <li><input type="checkbox" checked disabled> Unlimited applies</li>
+                <li><input type="checkbox" checked disabled> Applies expiry 90 days</li>
+                <li><input type="checkbox" checked disabled> Jobseeker contact details are visible</li>
+                <li>✖<button class="cross-btn">only 20 Resume Download</button></li>
+                <li>✖<button class="cross-btn">Job Branding </button></li>
+                <li><strong>Job validity 30 days</strong></li>
+            </ul>
+            <button class="buy-now">BUY NOW</button>
+        </div>
+
+        <div class="plan" id="plan3">
+		<img src="imge/crown.png" alt="Crown" class="crown-img">
+            <h2>PRO PLAN</h2>
+            <p class="price">INR 499/- PM </p>
+			<small><strong>*GST as applicable</strong></small>
+            <p><strong>Membership: PRO </strong> </p>
+            <ul>
+                <li><input type="checkbox" checked disabled> Detailed job description</li>
+                <li><input type="checkbox" checked disabled> 9 job locations</li>
+                <li><input type="checkbox" checked disabled> Unlimited applies</li>
+                <li><input type="checkbox" checked disabled> Applies expiry 90 days</li>
+                <li><input type="checkbox" checked disabled> Jobseeker contact details are visible</li>
+                <li><input type="checkbox" checked disabled> Boost on Job Search Page</li>
+                <li><input type="checkbox" checked disabled> Job Branding</li>
+                <li><strong>Job validity 30 days</strong></li>
+            </ul>
+            <button class="buy-now">BUY NOW</button>
+        </div>
+    </div>
+
+        
+
+
+    <script>
+	// Function to simulate login and display the welcome message
+function login() {
+    const userName = prompt("AKASH SONI:");
+    if (userName) {
+        document.getElementById("welcomeMessage").innerHTML = `Welcome, ${userName}!`;
+    }
+}
+
+	</script>
+</body>
+</html>
