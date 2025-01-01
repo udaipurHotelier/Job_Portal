@@ -4,41 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employer Login - Udaipur Hotelier</title>
-  <link rel="stylesheet" href="Logincss.css">
+  
   <link href="css/Logincss.css" rel="stylesheet">
 </head>
 <body>
+<div class="wrapper">
+  <div class="form-wrapper sign-in">
+	<form action="">
+		<h2>Employer Login</h2>
+			<div class="input-group">
+			<input type="text" required>
+			<label for="">Username</label>
+			</div>
+			<div class="input-group">
+			<input type="password" required>
+			<label for="">Password</label>
+			</div>
+			<div class="remember">
+			<label><input type="checkbox"> Remember Me</label>
+			</div>
+			<button type="submit">Login</button>
+			<div class="signUp-link">
+			<p>Having any Issue <a href="#" class="signUpBtn-link">Forget Username</p><br>
+			<p><a href="404.html" class=""> </a></p>
+			</div>
+			<div class="signUp-link">
+			<p><a href="" class="">Request For New Account</p>
+	</form>
+  </div>
+  <!-- signup -->
+  <div class="form-wrapper sign-up">
+	<form action="">
+		<h2>Forget User Name</h2>
+			
+			<div class="input-group">
+			<input type="email" required>
+			<label for="">Email</label>
+			</div>
+			
+			<div class="remember">
+			<label><input type="checkbox"><a href="">  I agree to the terms & conditions</a></label>
+			</div>
+			<button type="submit">Submit</button>
+			<div class="signUp-link">
+			<p>Already Have an Account..? <a href="#" class="signInBtn-link">Sign In</a></p>
+			</div>
+	</form>
+  </div>
+  
+ </div>
 
-  <!-- Main login container -->
-  <section class="login-container">
-    <div class="form-container">
-      <h2>Employer Login - Udaipur Hotelier</h2>
-      
-      <!-- Login Form -->
-      <form id="employerLoginForm" method="POST">
-        <div class="input-group">
-          <input type="text" id="username" name="username" placeholder="Username" required>
-        </div>
-        <div class="input-group">
-          <input type="password" id="password" name="password" placeholder="Password" required>
-        </div>
-        
-        <button type="submit">Login</button>
-      </form>
-
-      <!-- Links for Forgot Username, Forgot Password -->
-      <div class="links">
-        <a href="forgot_username.html">Forgot Username?</a>
-        <a href="forgot_password.html">Forgot Password?</a>
-      </div>
-
-      <!-- Role Selection Links -->
-      <div class="role-selection">
-        <a href="">Request For New Account </a>
-      </div>
-    </div>
-  </section>
-
-  <script src="js/loginjs.js"></script>	
+  <script>
+  const signInBtnLink= document.querySelector('.signInBtn-link');
+  const signUpBtnLink= document.querySelector('.signUpBtn-link');
+  const wrapper = document.querySelector('.wrapper');
+  
+  signUpBtnLink.addEventListener('click', () => {
+  wrapper.classList.toggle('active');
+  });
+  signInBtnLink.addEventListener('click', () => {
+  wrapper.classList.toggle('active');
+  });
+  
+  
+  
+  </script>
 </body>
 </html>
