@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Headings</title>
+    <title>Udaipur Hotelier-Learning</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -29,87 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <style>
-     .page-container {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: #096079;
-			color: #333;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .main-title {
-            color: black;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .heading-container {
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-			
-        }
-        .heading-section {            
-			
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s;
-            flex: 0 1 calc(33.333% - 40px);
-        }
-        .heading-section:hover {
-            transform: translateY(-5px);
-        }
-        .heading-title {
-            color: black;
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-        .subheading-list {
-            list-style-type: none;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .subheading-link {
-            text-decoration: none;
-            font-size: 16px;
-            min-width: 150px;
-            padding: 10px;
-            border-radius: 50px;
-            display: inline-block;
-            background: white;
-            color: black;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-        .subheading-link.visited {
-            background: linear-gradient(45deg, #81C784, #4CAF50);
-        }
-        .subheading-link:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-			color:#020024;
-        }
-        @media (max-width: 768px) {
-            .heading-section {
-                flex: 0 1 calc(50% - 20px);
-            }
-        }
-        @media (max-width: 480px) {
-            .heading-section {
-                flex: 0 1 100%;
-            }
-        }
-    </style>
+    <link href="css/learnpagecss.css" rel="stylesheet">
+    
 </head>
 <body>
 <div class="container-xxl bg-white p-0">
@@ -133,6 +54,18 @@
 	<div class="page-container">
         <h1 class="main-title">Learning Topic</h1>
         <div class="heading-container">
+		<div class="heading-section">
+		
+                <h2 class="heading-title">EXCEL</h2>
+                <ul class="subheading-list">
+                    
+                    <li><a href="BasicExcel.html" class="subheading-link" onclick="markAsVisited(this)">Basic Excel</a></li>
+                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)">Advance Excel </a></li>
+                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)">Excel Formula</a></li>
+                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)">Excel Formats</a></li>
+					<li><a href="Excel_Exercise.html" class="subheading-link" onclick="markAsVisited(this)">Quiz</a></li>
+                </ul>
+            </div>
             <div class="heading-section">
                 <h2 class="heading-title">FRONT OFFICE</h2>
                 <ul class="subheading-list">
@@ -221,6 +154,9 @@
         function markAsVisited(link) {
             link.classList.add('visited');
         }
+		document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+});
     </script>
 </body>
 </html>
