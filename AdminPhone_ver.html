@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udaipur Hotelier - Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 50px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: 0 auto;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+        .countdown {
+            font-size: 12px;
+            color: red;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .block-message {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginSection">
+        <h2>Udaipur Hotelier - Admin Login</h2>
+
+        <!-- Phone Login Division -->
+        <div id="phoneLoginDivision">
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" placeholder="Enter your Phone Number" oninput="validatePhoneNumber()">
+                <div id="phoneError" class="error hidden">Phone number must be exactly 10 digits</div>
+            </div>
+            <button class="btn" id="sendOtpButton" onclick="sendOTP()">Send OTP</button>
+            <div id="otpSection" class="hidden">
+                <div class="form-group">
+                    <label for="otp">OTP</label>
+                    <input type="text" id="otp" placeholder="Enter OTP" disabled>
+                </div>
+                <button class="btn" onclick="verifyOTP()" id="verifyOTPButton" disabled>Verify OTP</button>
+                <div class="countdown" id="countdown"></div>
+            </div>
+            <div class="block-message hidden" id="blockMessage">You have been blocked from requesting OTP for 24 hours.</div>
+        </div>
+    </div>
+
+    <script>
+        const MAX_OTP_REQUESTS = 5;
+        const BLOCK_TIME = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+        let otpRequests = localStorage.getItem('otpRequests') ? JSON.parse(localStorage.getItem('otpRequests')) : { count: 0, firstRequestTime: null, blockedUntil: null };
+
+        // On page load, check if user is blocked
+        checkIfBlocked();
+
+        function checkIfBlocked() {
+            const now = new Date().getTime();
+
+            if (otpRequests.blockedUntil && now < otpRequests.blockedUntil) {
+                blockUser();
+            } else {
+                unblockUser();
+            }
+        }
+
+        function validatePhoneNumber() {
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const phoneError = document.getElementById("phoneError");
+            const sendButton = document.getElementById("sendOtpButton");
+
+            if (phoneNumber.length === 10) {
+                phoneError.classList.add("hidden");
+                sendButton.disabled = false;
+            } else {
+                phoneError.classList.remove("hidden");
+                sendButton.disabled = true;
+            }
+        }
+
+        function sendOTP() {
+            const now = new Date().getTime();
+
+            // If first request, set firstRequestTime
+            if (!otpRequests.firstRequestTime) {
+                otpRequests.firstRequestTime = now;
+            }
+
+            // Check if more than 10 minutes have passed
+            if (now - otpRequests.firstRequestTime > 10 * 60 * 1000) {
+                blockUser();
+                return;
+            }
+
+            // Increment OTP request count
+            otpRequests.count++;
+
+            // Save to localStorage
+            localStorage.setItem('otpRequests', JSON.stringify(otpRequests));
+
+            // Check if user has reached max OTP requests
+            if (otpRequests.count > MAX_OTP_REQUESTS) {
+                blockUser();
+            } else {
+                alert(`OTP sent! (${otpRequests.count} / ${MAX_OTP_REQUESTS})`);
+                document.getElementById("otpSection").classList.remove("hidden");
+                document.getElementById("otp").disabled = false;
+                startCountdown();
+            }
+        }
+
+        function startCountdown() {
+            let timeLeft = 60;
+            const countdownDisplay = document.getElementById("countdown");
+            const sendOtpButton = document.getElementById("sendOtpButton");
+
+            sendOtpButton.classList.add("hidden");
+
+            const countdown = setInterval(() => {
+                if (timeLeft > 0) {
+                    countdownDisplay.innerText = `Resend OTP in: ${timeLeft} seconds`;
+                    timeLeft--;
+                } else {
+                    clearInterval(countdown);
+                    countdownDisplay.innerText = "";
+                    sendOtpButton.classList.remove("hidden");
+                }
+            }, 1000);
+        }
+
+        function verifyOTP() {
+            const otpInput = document.getElementById("otp").value;
+            if (otpInput === "1234") {
+                alert("OTP verified! You can now proceed.");
+                resetOtpRequests();
+            } else {
+                alert("Invalid OTP. Try again.");
+            }
+        }
+
+        function blockUser() {
+            const now = new Date().getTime();
+            const blockedUntil = now + BLOCK_TIME;
+
+            // Update blockedUntil in localStorage
+            otpRequests.blockedUntil = blockedUntil;
+            localStorage.setItem('otpRequests', JSON.stringify(otpRequests));
+
+            // Show block message and disable OTP button
+            document.getElementById("blockMessage").classList.remove("hidden");
+            document.getElementById("sendOtpButton").disabled = true;
+        }
+
+        function unblockUser() {
+            // Clear block message and enable OTP button
+            document.getElementById("blockMessage").classList.add("hidden");
+            document.getElementById("sendOtpButton").disabled = false;
+        }
+
+        function resetOtpRequests() {
+            otpRequests = { count: 0, firstRequestTime: null, blockedUntil: null };
+            localStorage.setItem('otpRequests', JSON.stringify(otpRequests));
+        }
+    </script>
+</body>
+</html>

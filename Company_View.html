@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Review System</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Udaipur Hotelier - Reviews</title>
+	
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -29,173 +30,12 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-   <style>
-
-.Review_container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-h5{
-color:red;
-}
-/* Left section: Review Form */
-.form-section {
-    width: 45%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#fill-review-btn {
-    display: block;
-    margin: 10px 0 20px;
-    padding: 10px 15px;
-    background-color: #00B074;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#fill-review-btn:hover {
-    background-color: #0056b3;
-}
-
-.review-form-container {
-    display: none;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin: 10px 0 5px;
-}
-
-input, textarea {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-textarea {
-    resize: vertical;
-}
-
-button[type="submit"] {
-    padding: 10px 15px;
-    background-color: #00B074;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #218838;
-}
-
-.rating {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.star {
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.star.selected {
-    color: gold;
-}
-
-#recommendation {
-    margin-bottom: 10px;
-}
-
-/* Right section: Review List */
-.review-list-section {
-    width: 50%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.review-list-section h2 {
-    margin-top: 0;
-}
-
-.company-reviews {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.company-reviews h3 {
-    margin: 0;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.reviews-content {
-    display: none;
-    margin-top: 10px;
-}
-
-.reviews-content div {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-}
-
-/* Hide user email in reviews */
-.reviews-content em {
-    font-style: italic;
-    color: #555;
-}
-
-#confirmation-message {
-    margin-top: 20px;
-    color: #28a745;
-    font-weight: bold;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .form-section, .review-list-section {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    #fill-review-btn {
-        width: 100%;
-    }
-
-    form {
-        width: 100%;
-    }
-}
-
-   </style>
+    <link href="css/companyviewcss.css" rel="stylesheet">
+    
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+<!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
             <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 <h4 class="m-0 text-primary">Udaipur Hotelier</h4>
             </a>
@@ -204,306 +44,112 @@ button[type="submit"]:hover {
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="index.html" class="nav-item nav-link">Home</a>
                     <a href="about.html" class="nav-item nav-link">About</a>
-					<a href="category.html" class="nav-item nav-link">Jobs</a>
+					<a href="category.html" class="nav-item nav-link active">Jobs</a>
 					<a href="contact.html" class="nav-item nav-link">Contact</a>
 					<a href="Resumenew.html" class="nav-item nav-link none">Resume</a>
-					<a href="Employer_login.html" class="nav-item nav-link none">Employer</a>
 				</div>
 			</div>
         </nav>
-    <div class="Review_container">
+    <div class="company_container">
         <!-- Left Section: Review Form -->
-        <div class="form-section">
-		<h5>Here you can see the original rating of your company and you can increase the rating by giving review.</h5>
-            <button id="fill-review-btn">Fill Review</button>
+        <div class="left-section">
+            <h1>Company Review</h1>
 
-            <div id="review-form-container" class="review-form-container">
-                <h2>Submit a Review</h2>
-                <form id="review-form">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" placeholder="Your Name will be hidden" required>
-                    
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" placeholder="Your email will be hidden" required>
+            <form id="reviewForm">
+			<label for="hotelName">Hotel Name:</label>
+			<select id="hotelName" name="hotelName">
+        <!-- Options will be populated dynamically by JavaScript -->
+			</select>
+			<label for="userName">Your Name:</label>
+            <input type="text" id="userName" name="userName" required>
+			<label for="userEmail">Your Email:</label>
+			<input type="email" id="userEmail" name="userEmail" required>
+                <div class="workHereContainer">
+					<label>Do you work here?</label>
+					<input type="radio" id="yes" name="workHere" value="yes">
+				<label for="yes">Yes</label>
+				<input type="radio" id="no" name="workHere" value="no">
+				<label for="no">No</label>
+				<input type="radio" id="guest" name="workHere" value="no">
+				<label for="no">Guest</label>
+				<input type="radio" id="pastEmployee" name="workHere" value="pastEmployee">
+				<label for="pastEmployee">X Employee</label>
+			</div>
 
-                    <label for="company">Company Name</label>
-                    <input type="text" id="company" placeholder="Your Company Name will be visible" required>
+		<div class="ratingSection">
+    <h2>Rating Section</h2>
 
-                    <div id="staff-rating" class="rating">
-                        <label>Staff Behaviour</label>
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-
-                    <div id="salary-rating" class="rating">
-                        <label>Salary Criteria</label>
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-
-                    <div id="manager-rating" class="rating">
-                        <label>Manager Behaviour</label>
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-
-                    <div id="property-rating" class="rating">
-                        <label>Property Rating</label>
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-
-                    <div id="owner-rating" class="rating">
-                        <label>Property Owner Rating</label>
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-
-                    <div id="food-rating" class="rating">
-                        <label>Staff Food</label>
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
-                    </div>
-
-                    <div id="recommendation">
-                        <label>Would you recommend this company to a new candidate?</label>
-                        <input type="radio" name="recommendation" value="yes"> Yes
-                        <input type="radio" name="recommendation" value="no"> No
-                    </div>
-
-                    <label for="other">Additional Comments</label>
-                    <textarea id="other" rows="4"></textarea>
-
-                    <button type="submit">Submit Review</button>
-                </form>
-                <div id="confirmation-message"></div>
-            </div>
-        </div>
-
-        <!-- Right Section: Review List -->
-        <div class="review-list-section">
-            <h2>Recent Reviews</h2>
-            <div id="companies-list"></div>
+    <div class="ratingItem">
+        <label>Salary Criteria:</label>
+        <div id="salary" class="star-rating">
+            <span class="star" data-value="1">☆</span>
+            <span class="star" data-value="2">☆</span>
+            <span class="star" data-value="3">☆</span>
+            <span class="star" data-value="4">☆</span>
+            <span class="star" data-value="5">☆</span>
         </div>
     </div>
 
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-    let staffRating = 0;
-    let salaryRating = 0;
-    let managerRating = 0;
-    let propertyRating = 0;
-    let ownerRating = 0;
-    let foodRating = 0;
-    let recommendation = "";
-    const reviewsData = {};
-    let reviewId = 1; // To generate anonymous user names (User 1, User 2, etc.)
+    <div class="ratingItem">
+        <label>Behavior:</label>
+        <div id="behavior" class="star-rating">
+            <span class="star" data-value="1">☆</span>
+            <span class="star" data-value="2">☆</span>
+            <span class="star" data-value="3">☆</span>
+            <span class="star" data-value="4">☆</span>
+            <span class="star" data-value="5">☆</span>
+        </div>
+    </div>
 
-    const admin = true; // Set to true if the user is an admin (for testing purposes)
+    <div class="ratingItem">
+        <label>Working Environment:</label>
+        <div id="environment" class="star-rating">
+            <span class="star" data-value="1">☆</span>
+            <span class="star" data-value="2">☆</span>
+            <span class="star" data-value="3">☆</span>
+            <span class="star" data-value="4">☆</span>
+            <span class="star" data-value="5">☆</span>
+        </div>
+    </div>
 
-    // Function to handle star rating selection
-    function handleStarRating(ratingElement, ratingValue) {
-        const stars = ratingElement.querySelectorAll('.star');
-        stars.forEach((star, index) => {
-            star.classList.remove('selected');
-            if (index < ratingValue) {
-                star.classList.add('selected');
-            }
-        });
-    }
+    <div class="ratingItem">
+        <label>Property Owner:</label>
+        <div id="owner" class="star-rating">
+            <span class="star" data-value="1">☆</span>
+            <span class="star" data-value="2">☆</span>
+            <span class="star" data-value="3">☆</span>
+            <span class="star" data-value="4">☆</span>
+            <span class="star" data-value="5">☆</span>
+        </div>
+    </div>
+</div>
 
-    // General rating click handler
-    document.querySelectorAll(".rating").forEach((ratingElement) => {
-        ratingElement.addEventListener("click", function (event) {
-            if (event.target.classList.contains("star")) {
-                const ratingValue = parseInt(event.target.getAttribute("data-value"));
-                const ratingId = ratingElement.id;
+	
+	<div class="recommendContainer">
+    <label>Would you recommend this Hotel..?</label>
+    <input type="radio" id="recommendYes" name="recommend" value="yes">
+    <label for="recommendYes">Yes</label>
+    <input type="radio" id="recommendNo" name="recommend" value="no">
+    <label for="recommendNo">No</label>
+</div>
 
-                switch (ratingId) {
-                    case 'staff-rating':
-                        staffRating = ratingValue;
-                        break;
-                    case 'salary-rating':
-                        salaryRating = ratingValue;
-                        break;
-                    case 'manager-rating':
-                        managerRating = ratingValue;
-                        break;
-                    case 'property-rating':
-                        propertyRating = ratingValue;
-                        break;
-                    case 'owner-rating':
-                        ownerRating = ratingValue;
-                        break;
-                    case 'food-rating':
-                        foodRating = ratingValue;
-                        break;
-                }
-                handleStarRating(ratingElement, ratingValue);
-            }
-        });
-    });
 
-    // Recommendation question click handler
-    document.querySelector("#recommendation").addEventListener("change", function (event) {
-        recommendation = event.target.value;
-    });
+                <label for="comments">Additional Comments:</label>
+                <textarea id="comments" name="comments" rows="4"></textarea>
 
-    // Form submission handler
-    document.querySelector("#review-form").addEventListener("submit", function (event) {
-        event.preventDefault();
+                <button type="submit">Submit</button>
+            </form>
+        </div>
 
-        const name = document.querySelector("#name").value;
-        const email = document.querySelector("#email").value;
-        const company = document.querySelector("#company").value;
-        const other = document.querySelector("#other").value;
+        <!-- Right Section: Reviews Display -->
+        <div class="right-section">
+            <h1>Reviews</h1>
+            <div id="hotelList"></div>
+        </div>
+    </div>
 
-        // Validate email format
-        if (!validateEmail(email)) {
-            alert("Please enter a valid email address.");
-            return;
-        }
-
-        if (staffRating === 0 || salaryRating === 0 || managerRating === 0 || propertyRating === 0 ||
-            ownerRating === 0 || foodRating === 0 || !recommendation) {
-            alert("Please provide ratings for all categories and answer the recommendation question.");
-            return;
-        }
-
-        // Add review to the reviews data by company
-        if (!reviewsData[company]) {
-            reviewsData[company] = [];
-        }
-
-        // Store anonymous user and email
-        const userName = `User ${reviewId++}`;
-        const anonymizedEmail = email.replace(/^(.{2})(.*)(@.*)$/, "$1****$3");
-
-        reviewsData[company].push({
-            name: userName,
-            email: anonymizedEmail,
-            staffRating,
-            salaryRating,
-            managerRating,
-            propertyRating,
-            ownerRating,
-            foodRating,
-            recommendation,
-            other
-        });
-
-        // Display confirmation message
-        document.querySelector("#confirmation-message").textContent = "Thank you for your review!";
-
-        // Optionally reset form
-        document.querySelector("#review-form").reset();
-        handleStarRating(document.querySelector("#staff-rating"), 0);
-        handleStarRating(document.querySelector("#salary-rating"), 0);
-        handleStarRating(document.querySelector("#manager-rating"), 0);
-        handleStarRating(document.querySelector("#property-rating"), 0);
-        handleStarRating(document.querySelector("#owner-rating"), 0);
-        handleStarRating(document.querySelector("#food-rating"), 0);
-        recommendation = "";
-
-        // Update the company reviews list
-        updateCompaniesList();
-
-        // Hide the review form
-        toggleReviewForm();
-    });
-
-    // Email validation function
-    function validateEmail(email) {
-        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        return re.test(email);
-    }
-
-    // Function to update the review list
-    function updateCompaniesList() {
-        const companiesListElement = document.querySelector("#companies-list");
-        companiesListElement.innerHTML = "";
-
-        // Sort companies alphabetically
-        const sortedCompanies = Object.keys(reviewsData).sort();
-
-        sortedCompanies.forEach((company) => {
-            const companyDiv = document.createElement("div");
-            companyDiv.classList.add("company-reviews");
-            const companyTitle = document.createElement("h3");
-            companyTitle.innerHTML = `Reviews for: ${company} (${reviewsData[company].length})`;
-            companyTitle.addEventListener("click", function () {
-                toggleReviews(company);
-            });
-
-            const reviewsContentDiv = document.createElement("div");
-            reviewsContentDiv.classList.add("reviews-content");
-
-            reviewsData[company].forEach((review) => {
-                const reviewDiv = document.createElement("div");
-                reviewDiv.innerHTML = `
-                    <strong>${review.name}</strong> (${admin ? review.email : '****'})<br>
-                    Staff Behaviour: ${"★".repeat(review.staffRating)} ${"☆".repeat(5 - review.staffRating)}<br>
-                    Salary Criteria: ${"★".repeat(review.salaryRating)} ${"☆".repeat(5 - review.salaryRating)}<br>
-                    Manager Behaviour: ${"★".repeat(review.managerRating)} ${"☆".repeat(5 - review.managerRating)}<br>
-                    Property Rating: ${"★".repeat(review.propertyRating)} ${"☆".repeat(5 - review.propertyRating)}<br>
-                    Property Owner Rating: ${"★".repeat(review.ownerRating)} ${"☆".repeat(5 - review.ownerRating)}<br>
-                    Staff Food: ${"★".repeat(review.foodRating)} ${"☆".repeat(5 - review.foodRating)}<br>
-                    Recommendation: ${review.recommendation === "yes" ? "Yes" : "No"}<br>
-                    <em>${review.other}</em>
-                `;
-                reviewsContentDiv.appendChild(reviewDiv);
-            });
-
-            companyDiv.appendChild(companyTitle);
-            companyDiv.appendChild(reviewsContentDiv);
-            companiesListElement.appendChild(companyDiv);
-        });
-    }
-
-    // Toggle visibility of reviews for a specific company
-    function toggleReviews(company) {
-        const companyDiv = Array.from(document.querySelectorAll(".company-reviews")).find(
-            (div) => div.querySelector("h3").textContent.startsWith(`Reviews for: ${company}`)
-        );
-        const reviewsContent = companyDiv.querySelector(".reviews-content");
-        reviewsContent.style.display = reviewsContent.style.display === "block" ? "none" : "block";
-    }
-
-    // Toggle review form visibility
-    function toggleReviewForm() {
-        const reviewFormContainer = document.querySelector("#review-form-container");
-        reviewFormContainer.style.display = reviewFormContainer.style.display === "none" || reviewFormContainer.style.display === "" ? "block" : "none";
-    }
-
-    // Load all past reviews on page load
-    updateCompaniesList();
-
-    // Handle "Fill Review" button click
-    document.getElementById("fill-review-btn").addEventListener("click", function () {
-        toggleReviewForm();
-    });
-});
-
-	</script>
+    <script src="js/companyviewjs.js"></script>
 </body>
 </html>

@@ -1,44 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Login - Udaipur Hotelier</title>
-  <link rel="stylesheet" href="Logincss.css">
-  <link href="css/Logincss.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udaipur Hotelier - Admin Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            padding: 50px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: 0 auto;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .toggle-password {
+            cursor: pointer;
+            margin-left: -25px;
+            position: absolute;
+            top: 35px;
+            right: 20px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+        .back-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .countdown {
+            font-size: 12px;
+            color: red;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <div class="container" id="loginSection">
+        <h2>Udaipur Hotelier - Admin Login</h2>
 
-  <!-- Main login container -->
-  <section class="login-container">
-    <div class="form-container">
-      <h2>Admin Login - Udaipur Hotelier</h2>
-      
-      <!-- Login Form -->
-      <form id="adminLoginForm" method="POST">
-        <div class="input-group">
-          <input type="text" id="username" name="username" placeholder="Username" required>
+        <!-- Login Division -->
+        <div id="loginDivision">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password">
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+            <button class="btn" onclick="login()">Login</button>
+            <div class="divider">
+                <a href="#" onclick="showForgetPassword()">Forget Password?</a> | 
+                <a href="" onclick="showPhoneLogin()">Login with Phone</a> 
+               <!-- <a href="AdminPhone_ver.html" >Login with Phone</a> -->
+            </div>
         </div>
-        <div class="input-group">
-          <input type="password" id="password" name="password" placeholder="Password" required>
+
+        <!-- Phone Login Division -->
+        <div id="phoneLoginDivision" class="hidden">
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" placeholder="Enter your Phone Number" oninput="validatePhoneNumber()">
+                <div id="phoneError" class="error hidden">Phone number must be exactly 10 digits</div>
+            </div>
+            <button class="btn" onclick="sendOTP()" id="sendOtpButton">Send OTP</button>
+            <div id="otpSection" class="hidden">
+                <div class="form-group">
+                    <label for="otp">OTP</label>
+                    <input type="text" id="otp" placeholder="Enter OTP" disabled>
+                </div>
+                <button class="btn" onclick="verifyOTP()" id="verifyOTPButton" disabled>Verify OTP</button>
+                <div class="countdown" id="countdown"></div>
+            </div>
         </div>
-        
-        <button type="submit">Login</button>
-      </form>
 
-      <!-- Links for Forgot Username, Forgot Password -->
-      <div class="links">
-        <a href="forgot_username.html">Forgot Username?</a>
-        <a href="forgot_password.html">Forgot Password?</a>
-      </div>
-
-      <!-- Role Selection Links -->
-      <div class="role-selection">
-        <p><a href="login.html">User Login</a> | <a href="employer_login.html">Employer Login</a></p>
-      </div>
+        <!-- Forget Password Division -->
+        <div id="forgetPasswordDivision" class="hidden">
+            <div class="form-group">
+                <label for="email">Enter Registered Email</label>
+                <input type="email" id="email" placeholder="Enter your registered email" value="example@example.com" oninput="validateEmail()">
+                <div id="emailError" class="error hidden">Please enter a valid email address</div>
+            </div>
+            <button class="btn" onclick="sendPasswordResetEmail()" id="sendEmailButton" disabled>Send Reset Link</button>
+            <button class="back-btn" onclick="backToLogin()">Back</button>
+        </div>
     </div>
-  </section>
 
- <script src="js/loginjs.js"></script>
+    <script>
+        let otpSent = false;
+        let countdown;
+        let otpTries = 0;
+
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+        }
+
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            if (username && password) {
+                alert("Login successful!");
+            } else {
+                alert("Please enter valid credentials.");
+            }
+        }
+
+        function showPhoneLogin() {
+            document.getElementById("loginDivision").classList.add("hidden");
+            document.getElementById("phoneLoginDivision").classList.remove("hidden");
+        }
+
+        function showForgetPassword() {
+            document.getElementById("loginDivision").classList.add("hidden");
+            document.getElementById("forgetPasswordDivision").classList.remove("hidden");
+        }
+
+        function backToLogin() {
+            document.getElementById("forgetPasswordDivision").classList.add("hidden");
+            document.getElementById("loginDivision").classList.remove("hidden");
+        }
+
+        function validatePhoneNumber() {
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const phoneError = document.getElementById("phoneError");
+            const sendButton = document.getElementById("sendOtpButton");
+
+            if (phoneNumber.length === 10) {
+                phoneError.classList.add("hidden");
+                sendButton.disabled = false;
+            } else {
+                phoneError.classList.remove("hidden");
+                sendButton.disabled = true;
+            }
+        }
+
+        function sendOTP() {
+            otpSent = true;
+            otpTries = 0;
+
+            // Hide "Send OTP" button and start countdown
+            document.getElementById("sendOtpButton").classList.add("hidden");
+            document.getElementById("otpSection").classList.remove("hidden");
+            document.getElementById("otp").disabled = false;
+
+            startCountdown();
+        }
+
+        function startCountdown() {
+            let timeLeft = 60;
+            const countdownDisplay = document.getElementById("countdown");
+
+            countdown = setInterval(() => {
+                if (timeLeft > 0) {
+                    countdownDisplay.innerText = `Resend OTP in: ${timeLeft} seconds`;
+                    timeLeft--;
+                } else {
+                    clearInterval(countdown);
+                    countdownDisplay.innerText = "";
+                    document.getElementById("sendOtpButton").classList.remove("hidden");
+                    document.getElementById("sendOtpButton").innerText = "Resend OTP";
+                }
+            }, 1000);
+        }
+
+        function verifyOTP() {
+            const otpInput = document.getElementById("otp").value;
+            if (otpInput === "1234") {
+                alert("OTP verified! You can now proceed.");
+            } else {
+                alert("Invalid OTP. Try again.");
+            }
+        }
+
+        function validateEmail() {
+            const email = document.getElementById("email").value;
+            const emailError = document.getElementById("emailError");
+            const sendButton = document.getElementById("sendEmailButton");
+
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (emailPattern.test(email)) {
+                emailError.classList.add("hidden");
+                sendButton.disabled = false;
+            } else {
+                emailError.classList.remove("hidden");
+                sendButton.disabled = true;
+            }
+        }
+
+        function sendPasswordResetEmail() {
+            alert("Password reset email sent!");
+            setTimeout(() => {
+                backToLogin();
+            }, 1000);
+        }
+    </script>
 </body>
 </html>

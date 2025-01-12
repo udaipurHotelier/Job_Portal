@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Collection</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+	<link href="css/style.css" rel="stylesheet">
+  <style>
+/* General styles for msg_container (previously the body tag) */
+#msg_container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container styles (flex layout for chat) */
+#container {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 80%;
+  max-width: 1000px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Sidebar styles */
+#sidebar {
+  width: 300px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#search-bar {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#search-bar:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* User List */
+#user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.user-item:hover {
+  background-color: #e0e0e0;
+}
+
+.user-item span {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.user-item .dots {
+  font-size: 18px;
+  color: #888;
+  cursor: pointer;
+}
+
+.unread {
+  background-color: #e3f2fd;
+  font-weight: bold;
+  border-left: 5px solid #007bff;
+}
+
+/* Chat Box */
+#chat-box {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-left: 1px solid #ddd;
+}
+
+/* Chat header */
+#chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f1f1f1;
+  margin-bottom: 20px;
+}
+
+#chat-header span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#user-actions button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#user-actions button:hover {
+  background-color: #0056b3;
+}
+
+/* Messages */
+#messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column-reverse; /* New messages at the bottom */
+  gap: 10px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+.message.user {
+  background-color: #e3f2fd;
+  align-self: flex-start; /* Align user messages to the left */
+}
+
+.message.employer {
+  background-color: #f1f1f1;
+  align-self: flex-end; /* Align employer messages to the right */
+}
+
+.message p {
+  margin: 0;
+  padding-bottom: 10px; /* Adds some space between the message text and timestamp */
+}
+
+/* Add spacing between message text and timestamp */
+.message .timestamp {
+  font-size: 12px;
+  color: #888;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  margin-top: 10px;  /* Adds gap between message and timestamp */
+}
+
+/* Message details block */
+.message.details {
+  display: none;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  z-index: 10;
+  max-width: 200px;
+}
+
+/* Input message area */
+#message-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#message-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Buttons */
+button {
+  padding: 5px 12px;
+  font-size: 14px;
+  margin-left: 10px;
+  border: none;
+  background-color: #ff5733;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e34e2a;
+}
+
+/* 3 dots button for each user */
+.dots-menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+}
+
+.dots-menu:hover {
+  color: #444;
+}
+
+.dots-options {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  width: 120px;
+}
+
+.dots-options a {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+.dots-options a:hover {
+  background-color: #f0f0f0;
+}
+
+.dots-options a:last-child {
+  border-bottom: none;
+}
+  </style>
+</head>
+<body>
+<!-- Nav bar Start -->
+	<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+            <a href="Employer.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+                <h4 class="m-0 text-primary">Udaipur Hotelier Employer</h4>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="Job-posting.html" class="nav-item nav-link ">Job Post</a>
+                    <a href="FindACandidate.html" class="nav-item nav-link ">Candidate</a>
+                    <a href="Employer_bulkResume.html" class="nav-item nav-link ">Bulk Resume</a>
+                     <a href="Job_Listings_Preview.html" class="nav-item nav-link">Listed Job</a>
+                     <a href="Employer_Membership.html" class="nav-item nav-link">Membership</a>
+				</div>
+			</div>
+        </nav>
+<div id="msg_container">
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <!-- Search Bar -->
+      <input type="text" id="search-bar" placeholder="Search for a user..." oninput="searchMessages()" />
+
+      <!-- User List Section -->
+      <div id="user-list">
+        <!-- Dynamic User List goes here -->
+      </div>
+    </div>
+
+    <!-- Chat Box -->
+    <div id="chat-box" style="display:none;">
+      <div id="chat-header">
+        <span id="user-name"></span>
+        <span id="user-actions">
+          <button onclick="deleteChat()">Delete Chat</button>
+          <button onclick="blockUser()">Block User</button>
+          <button onclick="markUnread()">Mark as Unread</button>
+        </span>
+      </div>
+      <div id="messages"></div>
+      <input type="text" id="message-input" placeholder="Type a message..." onkeydown="sendMessage(event)" />
+    </div>
+  </div>
+  <script>
+  // Load initial data
+const userList = document.getElementById('user-list');
+const chatBox = document.getElementById('chat-box');
+const chatHeader = document.getElementById('chat-header');
+const userName = document.getElementById('user-name');
+const messagesContainer = document.getElementById('messages');
+const messageInput = document.getElementById('message-input');
+const unreadCountElement = document.getElementById('unread-count');
+
+let currentUser = null;
+
+const users = [
+  {
+    username: "JohnDoe",
+    messages: [
+      {
+        id: 1,
+        from: "user",  // user message
+        text: "Hey, I have some questions about the job.",
+        timestamp: new Date().getTime(),
+        seen: false,
+      },
+      {
+        id: 2,
+        from: "employer",  // employer message
+        text: "Hello, John! Sure, what would you like to know?",
+        timestamp: new Date().getTime(),
+        seen: true,
+      },
+      {
+        id: 3,
+        from: "user",  // user message
+        text: "Can you tell me about the work hours?",
+        timestamp: new Date().getTime(),
+        seen: false,
+      },
+    ],
+    blocked: false,
+    unreadCount: 2, // This tracks unread messages
+  },
+  {
+    username: "JaneSmith",
+    messages: [
+      {
+        id: 1,
+        from: "user",  // user message
+        text: "Hi, I am interested in the position.",
+        timestamp: new Date().getTime(),
+        seen: false,
+      },
+      {
+        id: 2,
+        from: "employer",  // employer message
+        text: "Hello, Jane! Glad to hear that. Do you have any questions?",
+        timestamp: new Date().getTime(),
+        seen: true,
+      },
+    ],
+    blocked: false,
+    unreadCount: 1, // This tracks unread messages
+  },
+];
+
+// Render user list
+function renderUserList() {
+  userList.innerHTML = ''; // Clear existing list
+
+  users.forEach(user => {
+    if (user.blocked) return; // Don't show blocked users
+
+    const userItem = document.createElement('div');
+    userItem.classList.add('user-item');
+    
+    // Add unread styling if there are unread messages
+    if (user.unreadCount > 0) {
+      userItem.classList.add('unread');
+    }
+
+    userItem.innerHTML = `
+      <span>${user.username}</span>
+      <span class="unread-count">${user.unreadCount > 0 ? `(${user.unreadCount})` : ''}</span>
+      <span class="dots">...</span>
+    `;
+
+    userItem.onclick = () => openChat(user);
+    userList.appendChild(userItem);
+  });
+}
+
+// Open chat for a specific user
+function openChat(user) {
+  currentUser = user;
+  userName.textContent = user.username;
+  chatBox.style.display = 'block';
+  renderMessages(user.messages);
+  // Mark the chat as read when it is opened
+  currentUser.unreadCount = 0;
+  renderUserList(); // Re-render user list to update unread count
+}
+
+// Render messages with timestamp
+function renderMessages(messages) {
+  messagesContainer.innerHTML = ''; // Clear existing messages
+
+  messages.forEach(msg => {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', msg.from); // Use the "from" to apply correct class
+
+    // Format timestamp to local time string
+    const timestamp = new Date(msg.timestamp).toLocaleTimeString();
+    
+    messageElement.innerHTML = `
+      <p>${msg.text}</p>
+      <span class="timestamp">${timestamp}</span>
+    `;
+
+    // Add message details when clicked
+    messageElement.addEventListener('click', () => showMessageDetails(msg, messageElement));
+
+    messagesContainer.appendChild(messageElement);
+  });
+}
+
+// Show message details on click
+function showMessageDetails(msg, messageElement) {
+  // Create a details block to show date, time, and seen status
+  let detailsBlock = messageElement.querySelector('.details');
+
+  if (!detailsBlock) {
+    detailsBlock = document.createElement('div');
+    detailsBlock.classList.add('details');
+    const messageDate = new Date(msg.timestamp).toLocaleString();  // Full date and time
+    const seenStatus = msg.seen ? 'Seen' : 'Unseen';
+
+    detailsBlock.innerHTML = `
+      <strong>Date and Time:</strong> ${messageDate} <br>
+      <strong>Status:</strong> ${seenStatus}
+    `;
+    messageElement.appendChild(detailsBlock);
+  }
+
+  // Toggle visibility of the details block
+  detailsBlock.style.display = detailsBlock.style.display === 'block' ? 'none' : 'block';
+}
+
+// Delete chat
+function deleteChat() {
+  users.splice(users.indexOf(currentUser), 1); // Remove the current user from the users array
+  renderUserList(); // Re-render the user list (user will be removed)
+  chatBox.style.display = 'none'; // Hide the chat box after deleting
+}
+
+// Block user
+function blockUser() {
+  currentUser.blocked = true;
+  renderUserList(); // Re-render the user list (blocked user won't appear)
+  chatBox.style.display = 'none'; // Hide the chat box after blocking
+}
+
+// Mark chat as unread
+function markUnread() {
+  currentUser.unreadCount += 1; // Increment the unread count for the user
+  renderUserList(); // Re-render user list to show updated unread count and highlight
+}
+
+// Initial render
+renderUserList();
+
+  </script>
+</body>
+</html>
