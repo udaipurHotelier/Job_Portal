@@ -52,3 +52,21 @@
 .popup-content button:hover {
     background-color: #0056b3;
 }
+
+.tab-content
+	{
+	display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 100%;
+            margin: 20px auto;
+			width:90%;
+			padding:0px;
+	}
+	.tab-content .tab-pane {
+	width:90%;
+	max-width:100%;
+	margin: 10px auto;
+	
+	}
+

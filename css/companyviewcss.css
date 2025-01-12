@@ -1,0 +1,171 @@
+	body {
+    font-family: Arial, sans-serif;
+    background-color: #E3856B;
+    margin: 0;
+    padding: 0;
+}
+
+.company_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left-section {
+    width: 45%;
+    background-color: #EDCBD2;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.right-section 
+{
+width: 45%;
+    background-color: #80C4B7;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"], input[type="email"], select, textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#hotelList {
+    margin-top: 20px;
+}
+
+.hotel-block {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.review-count {
+    color: #007bff;
+    margin-top: 10px;
+}
+.workHereContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.workHereContainer label {
+    margin-right: 5px; /* Adjust spacing between labels */
+}
+
+.workHereContainer input {
+    margin-right: 10px; /* Adjust spacing between inputs */
+}
+.recommendContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+	border-bottom: 2px solid #ccc;
+}
+
+.recommendContainer label {
+    margin-right: 5px; /* Adjust spacing between labels */
+}
+
+.recommendContainer input {
+    margin-right: 10px; /* Adjust spacing between inputs */
+}
+.ratingSection {
+    display: block;
+}
+
+h2 {
+    margin-bottom: 20px;
+    width: 100%; /* Fixed width */
+    max-width: 400px; /* You can adjust the width as needed */
+    text-align: left; /* Align the heading to the left */
+}
+
+.ratingItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px; /* Space between each rating item */
+    width: 100%; /* Ensures the items take up full width */
+    max-width: 600px; /* Fixed width for each rating item container */
+    border-bottom: 2px solid #ccc; /* Add a line below each rating item */
+    padding-bottom: 10px; /* Space between the content and the line */
+}
+
+.ratingItem label {
+    margin-right: 10px;
+    width: 200px; /* Fixed width for the labels */
+    text-align: left; /* Align label text */
+}
+
+.star-rating {
+    display: flex;
+    gap: 5px;
+    width: 200px; /* Fixed width for the stars */
+    justify-content: flex-start; /* Align stars to the left */
+}
+
+.star {
+    cursor: pointer;
+    font-size: 24px;
+}
+.filled {
+            color: #007bff;
+        }
+		.masked-name, .masked-email {
+    font-weight: bold;
+    color: #999;
+}
+
+.request-button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.request-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
