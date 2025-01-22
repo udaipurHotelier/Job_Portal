@@ -30,7 +30,29 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/learnpagecss.css" rel="stylesheet">
-    
+    <style>
+	.loading-dots::after {
+  content: ".";
+  animation: dots 1.5s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0% {
+    content: ".";
+  }
+  33% {
+    content: "..";
+  }
+  66% {
+    content: "...";
+  }
+  100% {
+    content: ".";
+  }
+}
+
+	</style>
+	
 </head>
 <body>
 <div class="container-xxl bg-white p-0">
@@ -91,61 +113,40 @@
                 <h2 class="heading-title">HUMAN RESOURCE</h2>
                 <ul class="subheading-list">
                     <li><a href="Downloadformate.html" class="subheading-link" onclick="markAsVisited(this)">List Of HR Policies</a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
+                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)"><span class="loading-dots">Loading...</span></a></li>
                 </ul>
             </div>
 			<div class="heading-section">
                 <h2 class="heading-title">Kitchen</h2>
                 <ul class="subheading-list">
                     <li><a href="Kitchen_knowledge.html" class="subheading-link" onclick="markAsVisited(this)">Knowledge</a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
+                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)"><span class="loading-dots">Loading...</span></a></li>
                 </ul>
             </div>
 			<div class="heading-section">
                 <h2 class="heading-title">ACCOUNTS</h2>
                 <ul class="subheading-list">
                     <li><a href="acc_knowledge.html" class="subheading-link" onclick="markAsVisited(this)">Knowledge</a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
+                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)"><i class="fas fa-tools"></i> Work in Progress</a></li>
                 </ul>
             </div>
 			<div class="heading-section">
                 <h2 class="heading-title">FOOD & BEVERAGE</h2>
                 <ul class="subheading-list">
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                </ul>
+                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)"><i class="fas fa-tools"></i> Work in Progress</a></li>
+				</ul>
             </div>
             <div class="heading-section">
                 <h2 class="heading-title">MAINTENANCE</h2>
                 <ul class="subheading-list">
-                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                </ul>
+                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)">Request This Content</a></li>
+				</ul>
             </div>
-			
 			<div class="heading-section">
-                <h2 class="heading-title">Security</h2>
+                <h2 class="heading-title">SECURITY</h2>
                 <ul class="subheading-list">
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
-                    <li><a href="" class="subheading-link" onclick="markAsVisited(this)"></a></li>
+                    <li><a href="#" class="subheading-link" onclick="markAsVisited(this)">Coming Soon</a></li>
+					
                 </ul>
             </div>
         </div>

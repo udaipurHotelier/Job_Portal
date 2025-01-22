@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Udaipur Hotelier</title>
@@ -23,15 +22,11 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/learncss.css" rel="stylesheet">
-	
+   <link href="css/style.css" rel="stylesheet">
+   <link href="css/offer_letter_generatecss.css" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container-xxl bg-white p-0">
+	<div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -61,33 +56,77 @@
 			</div>
 		</nav>
         <!-- Navbar End -->
+<div class="wrapper">
+    <!-- Form Container -->
+    <div class="form-container">
+        <h1>Joining Letter Form</h1>
+        <form id="joiningLetterForm">
+            <!-- File Input for Logo -->
+            <label for="companyLogo">Company Logo (PNG, JPG, JPEG)</label>
+            <input type="file" id="companyLogo" accept=".png, .jpg, .jpeg" required>
 
+            <label for="companyName">Company Name</label>
+            <input type="text" id="companyName" required>
 
-        <!-- Header End -->
-        <div class="container-xxl py-5 bg-dark page-header mb-5">
-            <div class="container my-5 pt-5 pb-4">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">Accounts Jobs</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb text-uppercase">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="category.html">Department</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Accounts</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <!-- Header End -->
-			<div class="learn_container">
-	<div class="section" id="chemicals">
-            <a href="LearnPage.html">Learn</a>
-        </div>
-	</div>
+            <label for="candidateName">Candidate Full Name</label>
+            <input type="text" id="candidateName" required>
 
-       
+            <label for="lastName">Candidate Last Name</label>
+            <input type="text" id="lastName" required>
 
+            <label for="candidateAddress">Candidate Address</label>
+            <input type="text" id="candidateAddress" required>
 
-        <!-- Footer Start -->
-        <div class="online-counter">Users :&nbsp;<span id="userCount">1</span></div>
+            <label for="department">Department</label>
+            <input type="text" id="department" required>
+
+            <label for="designation">Designation</label>
+            <input type="text" id="designation" required>
+
+            <label for="salary">Salary (INR)</label>
+            <input type="number" id="salary" required>
+
+            <label for="dateOfJoining">Date of Joining</label>
+            <input type="date" id="dateOfJoining" required>
+			
+			<label for="probationPeriod">Probation Period (in months)</label>
+            <input type="number" id="probationPeriod" required>
+
+            <label for="probationNoticePeriod">Notice Period During Probation (in days)</label>
+            <input type="number" id="probationNoticePeriod" required>
+
+            <label for="postProbationNoticePeriod">Notice Period After Probation (in Month)</label>
+            <input type="number" id="postProbationNoticePeriod" required>
+            <label for="location">Location</label>
+            <input type="text" id="location" required>
+
+            <label for="hrName">HR Name</label>
+            <input type="text" id="hrName" required>
+
+            <label for="officeAddress">Office Address</label>
+            <input type="text" id="officeAddress" required>
+
+            <label for="phoneNo">Official Phone No</label>
+            <input type="text" id="phoneNo" required>
+
+            <label for="emailId">Official Email ID</label>
+            <input type="email" id="emailId" required>
+
+            
+
+            <button type="button" class="btn" onclick="generateLetter()">Generate Joining Letter</button>
+        </form>
+    </div>
+
+    <!-- Preview Container -->
+    <div class="preview-container">
+        <h1>Live Joining Letter Preview</h1>
+        <div class="joining-letter" id="joiningLetterPreview"></div>
+        <button class="btn download-btn" id="downloadBtn" onclick="downloadLetter()">Download Joining Letter</button>
+    </div>
+</div>
+    
+        
 		<!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
@@ -124,9 +163,6 @@
                 </div>
             </div>
         </div>
-
-
-
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
@@ -138,9 +174,7 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+	 <script src="js/main.js"></script>
+	 <script src="js/offer_letter_generatejs.js"></script>
 </body>
-
 </html>
