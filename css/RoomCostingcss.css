@@ -1,0 +1,68 @@
+.main-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin-top: 30px; /* Added margin from the top */
+    }
+    .form-container {
+      width: 45%;
+      padding: 15px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      font-size: 1.5em;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 8px;
+      display: block;
+      font-size: 0.9em;
+    }
+    input {
+      width: 80%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    .result-container {
+      width: 45%;
+      padding: 15px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .result-container h2 {
+      text-align: center;
+      color: #333;
+      font-size: 1.3em;
+    }
+    .result-block {
+      background-color: #fff;
+      margin-bottom: 8px;
+      padding: 8px 12px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .result-block h3 {
+      margin: 0;
+      font-size: 1em;
+      color: #333;
+    }
+    .result-block p {
+      margin: 4px 0;
+      font-size: 1em;
+    }
+    .result-block span {
+      font-weight: bold;
+    }
+    .calculation-details {
+      margin-top: 8px;
+      border-top: 1px solid #ccc;
+      padding-top: 8px;
+    }
